@@ -1,132 +1,167 @@
-<!DOCTYPE html><html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html lang="pt-br"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Bolso Forte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3f3f3;
-      color: #202124;
-    }
-    header {
-      background-color: #ffffff;
-      padding: 16px 24px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    .descobrir {
-      padding: 24px;
-      background-color: #ffffff;
-      margin-top: 16px;
-    }
-    .descobrir h2 {
-      font-size: 20px;
-      margin-bottom: 16px;
-    }
-    .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .card {
-      background-color: #fafafa;
-      padding: 16px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-    }
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
-    .card h3 {
-      margin: 12px 0 8px;
-      font-size: 16px;
-    }
-    .card p {
-      margin: 0;
-      font-size: 14px;
-    }
-    footer {
-      text-align: center;
-      font-size: 12px;
-      padding: 16px;
-      background-color: #ffffff;
-      color: #666;
-      margin-top: 32px;
-    }
+      padding: 0;
+      background: #f3f4f6;
+      color: #111;
+    }header {
+  background-color: #1e293b;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.discover-section {
+  background-color: white;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.discover-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #1e40af;
+}
+
+.category-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.category {
+  background-color: #e0f2fe;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.news-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.news-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.news-card:hover {
+  transform: scale(1.02);
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.news-card h3 {
+  font-size: 1.1rem;
+  margin: 1rem;
+}
+
+.polls-section {
+  padding: 1rem 2rem;
+  background-color: #f8fafc;
+}
+
+.polls-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.poll {
+  margin-bottom: 1rem;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1e293b;
+  color: white;
+}
+
   </style>
-</head>
-<body>
-  <header>
-    <h1>Meu Bolso Forte</h1>
-  </header>  <section class="descobrir">
+</head><body>
+  <header>Meu Bolso Forte</header>  <section class="polls-section">
+    <h2>Enquetes do Dia</h2>
+    <div class="poll">
+      <img src="https://source.unsplash.com/400x200/?money" alt="Enquete 1" style="width:100%; border-radius: 8px;">
+      <p>Você já começou a investir em 2025?</p>
+    </div>
+    <div class="poll">
+      <img src="https://source.unsplash.com/400x200/?budget" alt="Enquete 2" style="width:100%; border-radius: 8px;">
+      <p>Você mantém um controle mensal de gastos?</p>
+    </div>
+  </section>  <section class="discover-section">
     <h2>Descobrir</h2>
-    <div class="card-container">
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+1" alt="Notícia 1">
-        <h3><a href="#">Alta da Selic afeta financiamentos</a></h3>
-        <p>Veja como a taxa impacta seu bolso.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+2" alt="Notícia 2">
-        <h3><a href="#">Inflação recua pelo 2º mês seguido</a></h3>
-        <p>IPCA apresenta leve desaceleração.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+3" alt="Notícia 3">
-        <h3><a href="#">Como organizar seu orçamento</a></h3>
-        <p>Dicas simples para equilibrar as finanças.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+4" alt="Notícia 4">
-        <h3><a href="#">FGTS: novidades para 2025</a></h3>
-        <p>Confira mudanças importantes nas regras.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+5" alt="Notícia 5">
-        <h3><a href="#">Investimentos: onde aplicar agora?</a></h3>
-        <p>Especialistas indicam boas opções.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+6" alt="Notícia 6">
-        <h3><a href="#">Dólar volta a subir</a></h3>
-        <p>Moeda americana fecha semana em alta.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+7" alt="Notícia 7">
-        <h3><a href="#">Crédito imobiliário em queda</a></h3>
-        <p>Setor sofre com altas taxas de juros.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+8" alt="Notícia 8">
-        <h3><a href="#">Economia brasileira cresce 0,9%</a></h3>
-        <p>Dados do IBGE mostram leve recuperação.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+9" alt="Notícia 9">
-        <h3><a href="#">PIX terá novos limites</a></h3>
-        <p>Banco Central divulga mudanças importantes.</p>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/300x160.png?text=Notícia+10" alt="Notícia 10">
-        <h3><a href="#">Planejamento para o 13º salário</a></h3>
-        <p>Como usar bem o dinheiro extra do fim de ano.</p>
-      </div>
-      <!-- Adicione mais manchetes se desejar -->
+    <div class="category-list">
+      <div class="category">Investimentos</div>
+      <div class="category">Economia</div>
+      <div class="category">Finanças Pessoais</div>
+      <div class="category">Renda Extra</div>
+      <div class="category">Educação Financeira</div>
+    </div>
+  </section>  <section class="news-section">
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?stock" alt="">
+      <h3>Bolsa de valores fecha em alta após semana de incertezas</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?crypto" alt="">
+      <h3>Bitcoin ultrapassa US$ 70 mil e anima investidores</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?real" alt="">
+      <h3>Dólar recua com foco em cortes de juros</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?inflation" alt="">
+      <h3>Inflação tem leve alta em março, aponta IBGE</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?tax" alt="">
+      <h3>Receita libera nova ferramenta para declaração do IR</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?fintech" alt="">
+      <h3>Fintechs ganham espaço entre jovens investidores</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?entrepreneur" alt="">
+      <h3>Empreendedorismo em alta: dicas para começar bem</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?finance" alt="">
+      <h3>5 aplicativos para organizar suas finanças</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?loan" alt="">
+      <h3>Cuidados ao contratar crédito pessoal</h3>
+    </div>
+    <div class="news-card">
+      <img src="https://source.unsplash.com/400x200/?budget" alt="">
+      <h3>Como montar um orçamento eficiente</h3>
     </div>
   </section>  <footer>
     © 2025 Meu Bolso Forte - Todos os direitos reservados
   </footer>
-</body>
-</html>
+</body></html>
