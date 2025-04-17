@@ -3,230 +3,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Bolso Forte</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f3f4f6;
-      color: #1e293b;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
     }
     header {
-      background-color: #1e293b;
+      background-color: #0a1f44;
       color: white;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.5rem;
-    }
-    .search-bar input {
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      border: none;
-      width: 250px;
-      max-width: 100%;
-    }
-    main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    .discover {
-      margin-bottom: 2rem;
-    }
-    .discover h2 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-    }
-    .discover-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .discover-card {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-    }
-    .discover-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-    .discover-card h3 {
-      margin: 0.5rem;
-      font-size: 1rem;
-    }
-    .discover-card a {
-      display: inline-block;
-      margin: 0.5rem;
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .news {
-      margin-bottom: 2rem;
-    }
-    .news h2 {
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-    }
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-    .news-card {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .news-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-    .news-card .content {
       padding: 1rem;
-      flex: 1;
     }
-    .news-card .content h3 {
-      font-size: 1rem;
-      margin: 0 0 0.5rem;
-    }
-    .news-card .content a {
-      color: #2563eb;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .subscribe {
-      background: #e0f2fe;
-      padding: 2rem;
-      text-align: center;
-      border-radius: 8px;
-    }
-    .subscribe input[type="email"] {
-      padding: 0.5rem;
-      width: 250px;
-      max-width: 100%;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin-right: 0.5rem;
-    }
-    .subscribe button {
-      padding: 0.6rem 1rem;
-      background-color: #2563eb;
+    .nav-link {
       color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .manchetes-carousel {
+      margin-top: 20px;
+    }
+    .descobrir {
+      margin-top: 20px;
     }
     footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #1e293b;
+      background-color: #0a1f44;
       color: white;
-      font-size: 0.9rem;
-      margin-top: 2rem;
+      padding: 1rem;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Meu Bolso Forte</h1>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Buscar cursos..." />
+    <div class="container">
+      <h1>Meu Bolso Forte</h1>
+      <nav class="nav">
+        <a class="nav-link" href="#">Início</a>
+        <a class="nav-link" href="#">Notícias</a>
+        <a class="nav-link" href="#">Descobrir</a>
+        <a class="nav-link" href="#">Aprenda</a>
+        <a class="nav-link" href="#">Ferramentas</a>
+      </nav>
     </div>
-  </header>
-  <main>
-    <section class="discover" id="descobrir">
-      <h2>Descobrir Cursos</h2>
-      <div class="discover-grid" id="courseGrid">
-        <template id="courseTemplate">
-          <div class="discover-card">
-            <img src="" alt="Curso">
-            <h3></h3>
-            <a href="#" target="_blank">Acessar</a>
-          </div>
-        </template>
+  </header>  <main class="container">
+    <section id="manchetes" class="manchetes-carousel">
+      <div id="carouselManchetes" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" id="manchetesCarousel">
+          <!-- Manchetes atualizadas dinamicamente aqui -->
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselManchetes" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselManchetes" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
       </div>
-    </section>
-    <section class="news" id="noticias">
-      <h2>Últimas Manchetes</h2>
-      <div class="news-grid" id="newsGrid"></div>
-    </section>
-    <section class="subscribe">
-      <h2>Receba atualizações por e-mail</h2>
-      <form id="subscribeForm">
-        <input type="email" id="emailInput" placeholder="Digite seu e-mail" required />
-        <button type="submit">Inscrever</button>
-      </form>
-    </section>
-  </main>
-  <footer>
-    &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
-  </footer>
-  <script>
-    // Dados iniciais de cursos
-    const courses = [
-      { title: 'Educação Financeira', url: 'https://www.ev.org.br/cursos/educacao-financeira', img: 'https://img.freepik.com/vetores-gratis/conceito-de-economia-com-personagem_23-2148794085.jpg' },
-      { title: 'Investimentos Iniciais', url: 'https://www.senai.br', img: 'https://img.freepik.com/fotos-gratis/equipe-de-negocios-analisando-graficos-e-relatorios-de-financas_23-2149023661.jpg' },
-      { title: 'Empreendedorismo', url: 'https://www.napratica.org.br/cursos/', img: 'https://img.freepik.com/fotos-gratis/aperto-de-mao-de-sucesso-de-parceiros_53876-25061.jpg' },
-      { title: 'Orçamento Pessoal', url: 'https://www.serasa.com.br/ensina/como-fazer-um-orcamento-pessoal', img: 'https://img.freepik.com/vetores-gratis/calculadora-de-dinamicas-de-animacao_1262-18509.jpg' }
-    ];
-    const courseGrid = document.getElementById('courseGrid');
-    const template = document.getElementById('courseTemplate');
-    function renderCourses(filter = '') {
-      courseGrid.innerHTML = '';
-      courses.filter(c => c.title.toLowerCase().includes(filter)).forEach(c => {
-        const clone = template.content.cloneNode(true);
-        clone.querySelector('img').src = c.img;
-        clone.querySelector('img').alt = c.title;
-        clone.querySelector('h3').textContent = c.title;
-        clone.querySelector('a').href = c.url;
-        courseGrid.appendChild(clone);
+    </section><section id="descobrir" class="descobrir">
+  <h2>Descobrir</h2>
+  <ul class="list-group">
+    <li class="list-group-item"><a href="https://www.infomoney.com.br/ultimas-noticias/" target="_blank">Últimas Notícias</a></li>
+    <li class="list-group-item"><a href="https://www.infomoney.com.br/mercados/" target="_blank">Mercados</a></li>
+    <li class="list-group-item"><a href="https://www.infomoney.com.br/economia/" target="_blank">Economia</a></li>
+    <li class="list-group-item"><a href="https://www.infomoney.com.br/onde-investir/" target="_blank">Onde Investir</a></li>
+    <li class="list-group-item"><a href="https://www.infomoney.com.br/business/" target="_blank">Business</a></li>
+    <li class="list-group-item"><a href="https://www.infomoney.com.br/trader/" target="_blank">Trader</a></li>
+  </ul>
+</section>
+
+  </main>  <footer>
+    <p>© 2025 Meu Bolso Forte - Todos os direitos reservados</p>
+  </footer>  <script>
+    async function atualizarManchetes() {
+      const response = await fetch('https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=8ce1169b48fe6234c1e8ce8287fbeb29');
+      const data = await response.json();
+      const container = document.getElementById("manchetesCarousel");
+      container.innerHTML = "";
+      data.articles.forEach((noticia, index) => {
+        const item = document.createElement("div");
+        item.className = `carousel-item${index === 0 ? ' active' : ''}`;
+        item.innerHTML = `
+          <a href="${noticia.url}" target="_blank">
+            <img src="${noticia.image || 'https://via.placeholder.com/600x300'}" alt="${noticia.title}" class="d-block w-100">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>${noticia.title}</h5>
+            </div>
+          </a>
+        `;
+        container.appendChild(item);
       });
     }
-    document.getElementById('searchInput').addEventListener('input', e => {
-      renderCourses(e.target.value.toLowerCase());
-    });
-    renderCourses();// GNews headlines
-const apiKey = '8ce1169b48fe6234c1e8ce8287fbeb29';
-async function loadNews() {
-  const res = await fetch(`https://gnews.io/api/v4/top-headlines?category=business&lang=pt&max=20&apikey=${apiKey}`);
-  const data = await res.json();
-  const newsGrid = document.getElementById('newsGrid');
-  newsGrid.innerHTML = '';
-  data.articles.forEach(a => {
-    const card = document.createElement('div'); card.className='news-card';
-    card.innerHTML = `
-      <img src="${a.image||'https://via.placeholder.com/300x150'}" alt="${a.title}" />
-      <div class="content">
-        <h3>${a.title}</h3>
-        <a href="${a.url}" target="_blank">Leia mais</a>
-      </div>`;
-    newsGrid.appendChild(card);
-  });
-}
-loadNews();
-setInterval(loadNews,60000);
 
-// Subscribe form
-document.getElementById('subscribeForm').addEventListener('submit', e=>{
-  e.preventDefault();
-  alert(`Obrigado! Você receberá novidades em ${document.getElementById('emailInput').value}`);
-  e.target.reset();
-});
-
-  </script>
-</body>
+    atualizarManchetes();
+    setInterval(atualizarManchetes, 60000);
+  </script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script></body>
 </html>
