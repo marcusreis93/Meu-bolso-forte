@@ -1,154 +1,65 @@
 <!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Bolso Forte</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Segoe UI', sans-serif; background-color: #f5f7fa; }
-    header, footer { background-color: #343a40; color: white; padding: 1rem; }
-    .hero { background: linear-gradient(to right, #007bff, #00c6ff); color: white; padding: 3rem 1rem; text-align: center; }
-    .post { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 1rem; }
-    .form-control, .btn { border-radius: 10px; }
-    iframe, canvas { width: 100%; }
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background-color: #1e88e5;
+      padding: 1.5rem;
+      text-align: center;
+      color: white;
+    }
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .widget-container {
+      margin-top: 3rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    .widget-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1 class="text-center">Meu Bolso Forte</h1>
-  </header>  <div class="hero">
-    <h2>Controle suas finanças com inteligência</h2>
-    <p>Ferramentas práticas, conteúdo de qualidade e recursos gratuitos para você prosperar!</p>
-  </div>  <div class="container my-4">
-    <div class="row">
-      <!-- Calculadora de Metas -->
-      <div class="col-md-6">
-        <h4>Calculadora de Metas</h4>
-        <input id="meta" class="form-control mb-2" type="number" placeholder="Meta (R$)">
-        <input id="prazo" class="form-control mb-2" type="number" placeholder="Prazo (meses)">
-        <button class="btn btn-primary w-100" onclick="calcularMeta()">Calcular</button>
-        <p id="resultadoMeta" class="mt-2"></p>
-      </div><!-- Controle de Gastos -->
-  <div class="col-md-6">
-    <h4>Controle de Gastos</h4>
-    <input id="descGasto" class="form-control mb-2" placeholder="Descrição">
-    <input id="valorGasto" class="form-control mb-2" type="number" placeholder="Valor (R$)">
-    <button class="btn btn-success w-100" onclick="adicionarGasto()">Adicionar</button>
-    <canvas id="graficoGastos" class="mt-3"></canvas>
-  </div>
-</div>
-
-<!-- Postagens -->
-<div class="mt-5">
-  <h4>Últimos Posts</h4>
-  <div id="posts"></div>
-  <textarea id="novoPost" class="form-control mb-2" placeholder="Compartilhe algo..."></textarea>
-  <button class="btn btn-secondary w-100" onclick="adicionarPost()">Publicar</button>
-</div>
-
-<!-- Cursos gratuitos -->
-<div class="mt-5">
-  <h4>Cursos Gratuitos</h4>
-  <ul>
-    <li><a href="https://www.ev.org.br/" target="_blank">Fundação Bradesco</a></li>
-    <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
-    <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
-    <li><a href="https://www.udemy.com/" target="_blank">Udemy (alguns gratuitos)</a></li>
-  </ul>
-</div>
-
-<!-- Simulador de Investimentos -->
-<div class="mt-5">
-  <h4>Simulador de Investimentos</h4>
-  <input id="investimento" class="form-control mb-2" type="number" placeholder="Valor inicial (R$)">
-  <input id="juros" class="form-control mb-2" type="number" placeholder="Juros ao mês (%)">
-  <input id="meses" class="form-control mb-2" type="number" placeholder="Período (meses)">
-  <button class="btn btn-info w-100" onclick="simularInvestimento()">Simular</button>
-  <p id="resultadoInvestimento" class="mt-2"></p>
-</div>
-
-<!-- Conversor de Moedas -->
-<div class="mt-5">
-  <h4>Conversor de Moedas</h4>
-  <input id="valorReal" class="form-control mb-2" type="number" placeholder="Valor em R$">
-  <select id="moeda" class="form-control mb-2">
-    <option value="5.10">Dólar (USD)</option>
-    <option value="5.50">Euro (EUR)</option>
-    <option value="0.026">Peso Argentino (ARS)</option>
-  </select>
-  <button class="btn btn-warning w-100" onclick="converterMoeda()">Converter</button>
-  <p id="resultadoConversao" class="mt-2"></p>
-</div>
-
-<!-- Formulário de Cadastro -->
-<div class="mt-5">
-  <h4>Cadastre-se para Novidades</h4>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdEg99SeuExemplo/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
-</div>
-
-<!-- Anúncios -->
-<div class="mt-5 text-center">
-  <h4>Anúncio</h4>
-  <div style="background:#eee; padding: 20px;">Espaço para anúncio do Google AdSense</div>
-</div>
-
-  </div>  <footer class="text-center">
-    <p>&copy; 2025 Meu Bolso Forte. Todos os direitos reservados.</p>
-  </footer>  <script>
-    function calcularMeta() {
-      const meta = parseFloat(document.getElementById("meta").value);
-      const prazo = parseInt(document.getElementById("prazo").value);
-      const mensal = meta / prazo;
-      document.getElementById("resultadoMeta").innerText = `Você precisa guardar R$ ${mensal.toFixed(2)} por mês.`;
-    }
-
-    let dadosGastos = [];
-    function adicionarGasto() {
-      const desc = document.getElementById("descGasto").value;
-      const valor = parseFloat(document.getElementById("valorGasto").value);
-      if (desc && valor) {
-        dadosGastos.push({ desc, valor });
-        atualizarGrafico();
-      }
-    }
-
-    function atualizarGrafico() {
-      const ctx = document.getElementById('graficoGastos').getContext('2d');
-      const labels = dadosGastos.map(g => g.desc);
-      const valores = dadosGastos.map(g => g.valor);
-      new Chart(ctx, {
-        type: 'bar',
-        data: { labels, datasets: [{ label: 'Gastos', data: valores, backgroundColor: '#007bff' }] },
-        options: { responsive: true, plugins: { legend: { display: false } } }
-      });
-    }
-
-    function adicionarPost() {
-      const post = document.getElementById("novoPost").value;
-      if (post) {
-        const container = document.getElementById("posts");
-        const div = document.createElement("div");
-        div.classList.add("post");
-        div.innerText = post;
-        container.prepend(div);
-        document.getElementById("novoPost").value = "";
-      }
-    }
-
-    function simularInvestimento() {
-      const valor = parseFloat(document.getElementById("investimento").value);
-      const juros = parseFloat(document.getElementById("juros").value) / 100;
-      const meses = parseInt(document.getElementById("meses").value);
-      const resultado = valor * Math.pow((1 + juros), meses);
-      document.getElementById("resultadoInvestimento").innerText = `Valor final: R$ ${resultado.toFixed(2)}`;
-    }
-
-    function converterMoeda() {
-      const real = parseFloat(document.getElementById("valorReal").value);
-      const cotacao = parseFloat(document.getElementById("moeda").value);
-      const convertido = real / cotacao;
-      document.getElementById("resultadoConversao").innerText = `Valor convertido: ${convertido.toFixed(2)}`;
-    }
-  </script></body>
+    <h1>Meu Bolso Forte</h1>
+    <p>Informações e ferramentas para sua vida financeira</p>
+  </header>  <main>
+    <section class="widget-container">
+      <div class="widget-title">Últimas Notícias em Finanças e Economia</div>
+      <div id="rss-news">
+        <script src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="170380/"></script>
+      </div>
+    </section>
+  </main>  <footer>
+    &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
+  </footer>
+</body>
 </html>
