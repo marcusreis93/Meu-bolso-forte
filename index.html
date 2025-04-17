@@ -3,143 +3,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Bolso Forte</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f3f3f3;
-      color: #333;
+      color: #202124;
     }
     header {
-      background-color: #1b1b1b;
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      background-color: #ffffff;
+      padding: 16px 24px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     header h1 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 24px;
     }
-    .section-title {
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      background-color: #e3e3e3;
-      margin-top: 1rem;
-    }
-    .discover-section {
-      padding: 1rem 2rem;
+    .descobrir {
+      padding: 24px;
       background-color: #ffffff;
+      margin-top: 16px;
+    }
+    .descobrir h2 {
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+    .card-container {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
     }
     .card {
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      padding: 1rem;
+      background-color: #fafafa;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
     }
     .card img {
       width: 100%;
-      height: auto;
+      height: 160px;
+      object-fit: cover;
       border-radius: 6px;
     }
-    .news-section {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1rem;
-      padding: 1rem 2rem;
+    .card h3 {
+      margin: 12px 0 8px;
+      font-size: 16px;
     }
-    .news-card {
-      background: #fff;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .news-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .news-card h3 {
-      margin: 0.5rem;
-      font-size: 1rem;
-    }
-    .widget-container {
-      background: #fff;
-      padding: 1rem;
-      margin: 1rem 2rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
+    .card p {
+      margin: 0;
+      font-size: 14px;
     }
     footer {
       text-align: center;
-      padding: 1rem;
-      background-color: #1b1b1b;
-      color: #fff;
-      font-size: 0.9rem;
+      font-size: 12px;
+      padding: 16px;
+      background-color: #ffffff;
+      color: #666;
+      margin-top: 32px;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Meu Bolso Forte</h1>
-  </header>  <div class="section-title">Descobrir</div>
-  <div class="discover-section">
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200?text=Finanças+Pessoais" alt="Finanças Pessoais">
-      <h3>Finanças Pessoais</h3>
+  </header>  <section class="descobrir">
+    <h2>Descobrir</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+1" alt="Notícia 1">
+        <h3><a href="#">Alta da Selic afeta financiamentos</a></h3>
+        <p>Veja como a taxa impacta seu bolso.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+2" alt="Notícia 2">
+        <h3><a href="#">Inflação recua pelo 2º mês seguido</a></h3>
+        <p>IPCA apresenta leve desaceleração.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+3" alt="Notícia 3">
+        <h3><a href="#">Como organizar seu orçamento</a></h3>
+        <p>Dicas simples para equilibrar as finanças.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+4" alt="Notícia 4">
+        <h3><a href="#">FGTS: novidades para 2025</a></h3>
+        <p>Confira mudanças importantes nas regras.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+5" alt="Notícia 5">
+        <h3><a href="#">Investimentos: onde aplicar agora?</a></h3>
+        <p>Especialistas indicam boas opções.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+6" alt="Notícia 6">
+        <h3><a href="#">Dólar volta a subir</a></h3>
+        <p>Moeda americana fecha semana em alta.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+7" alt="Notícia 7">
+        <h3><a href="#">Crédito imobiliário em queda</a></h3>
+        <p>Setor sofre com altas taxas de juros.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+8" alt="Notícia 8">
+        <h3><a href="#">Economia brasileira cresce 0,9%</a></h3>
+        <p>Dados do IBGE mostram leve recuperação.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+9" alt="Notícia 9">
+        <h3><a href="#">PIX terá novos limites</a></h3>
+        <p>Banco Central divulga mudanças importantes.</p>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/300x160.png?text=Notícia+10" alt="Notícia 10">
+        <h3><a href="#">Planejamento para o 13º salário</a></h3>
+        <p>Como usar bem o dinheiro extra do fim de ano.</p>
+      </div>
+      <!-- Adicione mais manchetes se desejar -->
     </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200?text=Investimentos" alt="Investimentos">
-      <h3>Investimentos</h3>
-    </div>
-    <div class="card">
-      <img src="https://via.placeholder.com/400x200?text=Economia" alt="Economia">
-      <h3>Economia</h3>
-    </div>
-  </div>  <div class="section-title">Últimas Manchetes</div>
-  <div id="news" class="news-section"></div>  <div class="section-title">Ferramentas e Widgets</div>
-  <section class="widget-container">
-    <div class="widget-title">Cotação de Moedas</div>
-    <iframe src="https://br.widgets.investing.com/live-currency-cross-rates?theme=lightTheme"></iframe>
-  </section>
-  <section class="widget-container">
-    <div class="widget-title">Simulador de Investimentos</div>
-    <iframe src="https://www.calculadorajuroscompostos.com.br/simulador-de-investimentos/" loading="lazy"></iframe>
-  </section>
-  <section class="widget-container">
-    <div class="widget-title">Calculadora de Juros Compostos</div>
-    <iframe src="https://www.calculadorajuroscompostos.com.br/" loading="lazy"></iframe>
   </section>  <footer>
-    &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
-  </footer>  <script>
-    async function carregarNoticias() {
-      const apiKey = '8ce1169b48fe6234c1e8ce8287fbeb29';
-      const url = `https://gnews.io/api/v4/top-headlines?lang=pt&topic=business&token=${apiKey}&max=20`;
-      const response = await fetch(url);
-      const data = await response.json();
-      const container = document.getElementById('news');
-      container.innerHTML = '';
-      data.articles.forEach(article => {
-        const card = document.createElement('div');
-        card.className = 'news-card';
-        card.innerHTML = `
-          <img src="${article.image || 'https://via.placeholder.com/400x200'}" alt="Notícia">
-          <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
-        `;
-        container.appendChild(card);
-      });
-    }
-    carregarNoticias();
-    setInterval(carregarNoticias, 60000);
-  </script></body>
+    © 2025 Meu Bolso Forte - Todos os direitos reservados
+  </footer>
+</body>
 </html>
