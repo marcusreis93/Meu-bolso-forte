@@ -1,88 +1,112 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Bolso Forte</title>
-
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7637426796351138"
-     crossorigin="anonymous"></script>
-
-  <!-- Google tag (gtag.js) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+    }
+    header {
+      background-color: #2d2d2d;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .container {
+      padding: 1rem;
+    }
+    .card {
+      background-color: #2b2b2b;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+    }
+    .card .meta {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .interactions {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      height: 300px;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+  <!-- Google AdSense e Tag -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7637426796351138" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17015471577"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-17015471577');
-
-    // Google tag (gtag.js) event
-    gtag('event', 'ads_conversion_Compra_1', {
-      // <event_parameters>
-    });
+    gtag('event', 'ads_conversion_Compra_1');
   </script>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f5f5f5;
-    }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    .widget-container {
-      margin: 20px;
-      padding: 20px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .widget-title {
-      font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: none;
-    }
-    footer {
-      text-align: center;
-      font-size: 14px;
-      color: #666;
-      padding: 20px;
-    }
-  </style>
 </head>
 <body>
-  <header>
-    <h1>Meu Bolso Forte</h1>
-    <p>Informações e ferramentas para sua vida financeira</p>
-  </header>
+  <header>Meu Bolso Forte</header>
+  <div class="container">
+    <div class="card">
+      <img src="https://placehold.co/600x400" alt="Notícia 1">
+      <h3>Agricultores descobrem fóssil de mamute de 15 mil anos</h3>
+      <div class="meta">Flipar · 8h atrás</div>
+      <div class="interactions">👍 119 &nbsp; 👎 3 &nbsp; ↗️ Compartilhar</div>
+    </div><div class="card">
+  <img src="https://placehold.co/600x400" alt="Notícia 2">
+  <h3>Já Não Há Nenhuma Língua "Estrangeira" Graças a Inovação</h3>
+  <div class="meta">Enence · 2h atrás</div>
+  <div class="interactions">👍 209 &nbsp; 👎 4 &nbsp; ↗️ Compartilhar</div>
+</div>
 
-  <section class="widget-container">
-    <div class="widget-title">Cotação de Moedas</div>
-    <iframe src="https://br.widgets.investing.com/live-currency-cross-rates?theme=lightTheme"></iframe>
-  </section>
+<section class="card">
+  <h3>Cotação de Moedas</h3>
+  <iframe src="https://br.widgets.investing.com/live-currency-cross-rates?theme=lightTheme"></iframe>
+</section>
 
-  <section class="widget-container">
-    <div class="widget-title">Simulador de Investimentos</div>
-    <iframe src="https://www.calculadorajuroscompostos.com.br/simulador-de-investimentos/" loading="lazy"></iframe>
-  </section>
+<section class="card">
+  <h3>Simulador de Investimentos</h3>
+  <iframe src="https://www.calculadorajuroscompostos.com.br/simulador-de-investimentos/" loading="lazy"></iframe>
+</section>
 
-  <section class="widget-container">
-    <div class="widget-title">Calculadora de Juros Compostos</div>
-    <iframe src="https://www.calculadorajuroscompostos.com.br/" loading="lazy"></iframe>
-  </section>
+<section class="card">
+  <h3>Calculadora de Juros Compostos</h3>
+  <iframe src="https://www.calculadorajuroscompostos.com.br/" loading="lazy"></iframe>
+</section>
 
-  <footer>
+  </div>  <footer>
     © 2025 Meu Bolso Forte - Todos os direitos reservados
   </footer>
 </body>
