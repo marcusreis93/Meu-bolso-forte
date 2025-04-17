@@ -8,10 +8,9 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
+      background: #f3f4f6;
       margin: 0;
       padding: 0;
-      background: #f3f4f6;
-      color: #111827;
     }
     header {
       background: linear-gradient(to right, #4f46e5, #3b82f6);
@@ -19,14 +18,10 @@
       text-align: center;
       padding: 2rem 1rem;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
     .container {
       max-width: 1000px;
       margin: auto;
-      padding: 2rem;
+      padding: 1rem;
     }
     .card {
       background: white;
@@ -64,68 +59,108 @@
       border-left: 5px solid #0284c7;
       margin: 1rem 0;
     }
+    #loginContainer {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Meu Bolso Forte</h1>
     <p>Seu guia prático para organizar as finanças com estilo!</p>
-  </header>  <div class="container">
-    <div class="card">
-      <h2>Calculadora de Metas</h2>
-      <label for="meta">Meta financeira:</label>
-      <input type="number" id="meta">
-      <label for="tempo">Meses para atingir:</label>
-      <input type="number" id="tempo">
-      <button onclick="calcularMeta()">Calcular</button>
-      <p id="resultado"></p>
-    </div><div class="card">
+  </header>  <div class="container"><div class="card" id="loginContainer">
+  <h2>Login</h2>
+  <input type="text" id="usuario" placeholder="Usuário">
+  <input type="password" id="senha" placeholder="Senha">
+  <button onclick="login()">Entrar</button>
+</div>
+
+<div class="card" id="areaLogada" style="display:none">
+  <h2>Bem-vindo, <span id="userName"></span>!</h2>
+  <button onclick="logout()">Sair</button>
+</div>
+
+<div class="card">
+  <h2>Calculadora de Metas</h2>
+  <input type="number" id="meta" placeholder="Meta financeira">
+  <input type="number" id="tempo" placeholder="Meses">
+  <button onclick="calcularMeta()">Calcular</button>
+  <p id="resultado"></p>
+</div>
+
+<div class="card">
   <h2>Controle de Despesas</h2>
-  <textarea id="despesas" placeholder="Digite suas despesas..."></textarea>
+  <textarea id="despesas" placeholder="Ex: Alimentação:300\nTransporte:150"></textarea>
   <button onclick="salvarDespesas()">Salvar</button>
 </div>
 
 <div class="card">
-  <h2>Resumo Gráfico das Despesas</h2>
+  <h2>Resumo Gráfico</h2>
   <canvas id="graficoDespesas" height="200"></canvas>
 </div>
 
 <div class="card">
-  <h2>Cadastro de Interesse</h2>
+  <h2>Blog Financeiro</h2>
+  <textarea id="novoPost" placeholder="Digite seu post..."></textarea>
+  <button onclick="adicionarPost()">Publicar</button>
+  <div id="listaPosts"></div>
+</div>
+
+<div class="card">
+  <h2>Cadastro</h2>
   <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdXXXXX/viewform?embedded=true" width="100%" height="500" frameborder="0">Carregando…</iframe>
 </div>
 
 <div class="card">
-  <h2>Posts Recentes</h2>
-  <div class="post">
-    <h3>5 Passos para Sair das Dívidas</h3>
-    <p>Descubra estratégias simples e eficazes para recuperar o controle financeiro ainda este mês.</p>
-  </div>
-  <div class="post">
-    <h3>Como Organizar seu Orçamento com Apenas 3 Planilhas</h3>
-    <p>Ferramentas práticas para você baixar e usar gratuitamente.</p>
-  </div>
-  <div class="post">
-    <h3>Você conhece o método 50/30/20?</h3>
-    <p>Descubra como dividir sua renda entre necessidades, desejos e investimentos com inteligência!</p>
+  <h2>Anúncio</h2>
+  <!-- Substitua o código abaixo pelo fornecido pelo Google AdSense -->
+  <div style="background:#d1fae5; padding:1rem; text-align:center">
+    [ESPACO PARA ANÚNCIO GOOGLE ADSENSE]
   </div>
 </div>
 
   </div>  <script>
-    function calcularMeta() {
-      const meta = document.getElementById("meta").value;
-      const tempo = document.getElementById("tempo").value;
-      const resultado = meta / tempo;
-      document.getElementById("resultado").innerText = `Você precisa guardar R$ ${resultado.toFixed(2)} por mês.`;
+    // LOGIN SIMPLES
+    function login() {
+      const user = document.getElementById('usuario').value;
+      const pass = document.getElementById('senha').value;
+      if (user && pass) {
+        localStorage.setItem('userLogado', user);
+        document.getElementById('userName').innerText = user;
+        document.getElementById('loginContainer').style.display = 'none';
+        document.getElementById('areaLogada').style.display = 'block';
+      }
+    }
+    function logout() {
+      localStorage.removeItem('userLogado');
+      location.reload();
     }
 
+    // POSTS
+    function adicionarPost() {
+      const texto = document.getElementById('novoPost').value;
+      if (!texto) return;
+      const posts = JSON.parse(localStorage.getItem('posts')) || [];
+      posts.unshift(texto);
+      localStorage.setItem('posts', JSON.stringify(posts));
+      mostrarPosts();
+      document.getElementById('novoPost').value = '';
+    }
+    function mostrarPosts() {
+      const posts = JSON.parse(localStorage.getItem('posts')) || [];
+      const container = document.getElementById('listaPosts');
+      container.innerHTML = '';
+      posts.forEach(p => {
+        container.innerHTML += `<div class='post'>${p}</div>`;
+      });
+    }
+
+    // GRÁFICO
     function salvarDespesas() {
       const dados = document.getElementById("despesas").value;
       localStorage.setItem("despesas", dados);
-      alert("Despesas salvas!");
       desenharGrafico(dados);
     }
-
     function desenharGrafico(dadosTexto) {
       const despesas = dadosTexto.split("\n").map(l => l.trim()).filter(Boolean);
       const categorias = {};
@@ -135,7 +170,6 @@
         const valor = parseFloat(partes[1]) || 0;
         categorias[categoria] = (categorias[categoria] || 0) + valor;
       });
-
       const ctx = document.getElementById("graficoDespesas").getContext("2d");
       new Chart(ctx, {
         type: "pie",
@@ -149,12 +183,28 @@
       });
     }
 
+    function calcularMeta() {
+      const meta = document.getElementById("meta").value;
+      const tempo = document.getElementById("tempo").value;
+      const resultado = meta / tempo;
+      document.getElementById("resultado").innerText = `Você precisa guardar R$ ${resultado.toFixed(2)} por mês.`;
+    }
+
     window.onload = () => {
+      const user = localStorage.getItem('userLogado');
+      if (user) {
+        document.getElementById('userName').innerText = user;
+        document.getElementById('loginContainer').style.display = 'none';
+        document.getElementById('areaLogada').style.display = 'block';
+      } else {
+        document.getElementById('loginContainer').style.display = 'block';
+      }
       const salvos = localStorage.getItem("despesas");
       if(salvos) {
         document.getElementById("despesas").value = salvos;
         desenharGrafico(salvos);
       }
+      mostrarPosts();
     }
   </script></body>
 </html>
