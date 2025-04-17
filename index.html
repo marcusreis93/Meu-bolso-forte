@@ -1,106 +1,145 @@
 <!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Bolso Forte</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f3f3f3;
+      color: #333;
     }
     header {
-      background-color: #0078d7;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    .enquetes {
-      padding: 2rem;
-      background-color: #fff;
-      border-bottom: 2px solid #0078d7;
-    }
-    .enquete {
-      margin-bottom: 2rem;
-    }
-    .enquete img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-    }
-    .descobrir {
-      background-color: #ffffff;
+      background-color: #1b1b1b;
+      color: #fff;
       padding: 1rem 2rem;
-      border-top: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .descobrir h2 {
-      color: #0078d7;
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .section-title {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #e3e3e3;
+      margin-top: 1rem;
+    }
+    .discover-section {
+      padding: 1rem 2rem;
+      background-color: #ffffff;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+    }
+    .news-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+      padding: 1rem 2rem;
+    }
+    .news-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .news-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .news-card h3 {
+      margin: 0.5rem;
+      font-size: 1rem;
     }
     .widget-container {
-      background-color: #fff;
+      background: #fff;
       padding: 1rem;
-      margin: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin: 1rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
-    .widget-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: #0078d7;
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
     }
     footer {
       text-align: center;
       padding: 1rem;
-      background-color: #0078d7;
-      color: white;
-      margin-top: 2rem;
+      background-color: #1b1b1b;
+      color: #fff;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Meu Bolso Forte</h1>
-    <p>Informações e ferramentas para sua vida financeira</p>
-  </header>  <section class="enquetes">
-    <div class="enquete">
-      <img src="https://via.placeholder.com/600x300?text=Economia" alt="Imagem de enquete 1">
-      <h2>Qual seu maior desafio financeiro atualmente?</h2>
-      <ul>
-        <li>Guardar dinheiro</li>
-        <li>Evitar dívidas</li>
-        <li>Investir com segurança</li>
-        <li>Planejar aposentadoria</li>
-      </ul>
+  </header>  <div class="section-title">Descobrir</div>
+  <div class="discover-section">
+    <div class="card">
+      <img src="https://via.placeholder.com/400x200?text=Finanças+Pessoais" alt="Finanças Pessoais">
+      <h3>Finanças Pessoais</h3>
     </div>
-    <div class="enquete">
-      <img src="https://via.placeholder.com/600x300?text=Investimentos" alt="Imagem de enquete 2">
-      <h2>Você já investe mensalmente?</h2>
-      <ul>
-        <li>Sim, regularmente</li>
-        <li>Às vezes</li>
-        <li>Não, mas quero começar</li>
-        <li>Não vejo necessidade</li>
-      </ul>
+    <div class="card">
+      <img src="https://via.placeholder.com/400x200?text=Investimentos" alt="Investimentos">
+      <h3>Investimentos</h3>
     </div>
-  </section>  <section class="descobrir">
-    <h2>Descobrir</h2>
-    <p>Veja conteúdos personalizados sobre finanças, economia, investimentos e muito mais baseados em suas preferências.</p>
-  </section>  <section class="widget-container">
+    <div class="card">
+      <img src="https://via.placeholder.com/400x200?text=Economia" alt="Economia">
+      <h3>Economia</h3>
+    </div>
+  </div>  <div class="section-title">Últimas Manchetes</div>
+  <div id="news" class="news-section"></div>  <div class="section-title">Ferramentas e Widgets</div>
+  <section class="widget-container">
     <div class="widget-title">Cotação de Moedas</div>
-    <iframe src="https://br.widgets.investing.com/live-currency-cross-rates?theme=lightTheme" width="100%" height="400"></iframe>
+    <iframe src="https://br.widgets.investing.com/live-currency-cross-rates?theme=lightTheme"></iframe>
   </section>
   <section class="widget-container">
     <div class="widget-title">Simulador de Investimentos</div>
-    <iframe src="https://www.calculadorajuroscompostos.com.br/simulador-de-investimentos/" loading="lazy" width="100%" height="400"></iframe>
+    <iframe src="https://www.calculadorajuroscompostos.com.br/simulador-de-investimentos/" loading="lazy"></iframe>
   </section>
   <section class="widget-container">
     <div class="widget-title">Calculadora de Juros Compostos</div>
-    <iframe src="https://www.calculadorajuroscompostos.com.br/" loading="lazy" width="100%" height="400"></iframe>
+    <iframe src="https://www.calculadorajuroscompostos.com.br/" loading="lazy"></iframe>
   </section>  <footer>
-    © 2025 Meu Bolso Forte - Todos os direitos reservados
-  </footer>
-</body>
+    &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
+  </footer>  <script>
+    async function carregarNoticias() {
+      const apiKey = '8ce1169b48fe6234c1e8ce8287fbeb29';
+      const url = `https://gnews.io/api/v4/top-headlines?lang=pt&topic=business&token=${apiKey}&max=20`;
+      const response = await fetch(url);
+      const data = await response.json();
+      const container = document.getElementById('news');
+      container.innerHTML = '';
+      data.articles.forEach(article => {
+        const card = document.createElement('div');
+        card.className = 'news-card';
+        card.innerHTML = `
+          <img src="${article.image || 'https://via.placeholder.com/400x200'}" alt="Notícia">
+          <h3><a href="${article.url}" target="_blank">${article.title}</a></h3>
+        `;
+        container.appendChild(card);
+      });
+    }
+    carregarNoticias();
+    setInterval(carregarNoticias, 60000);
+  </script></body>
 </html>
