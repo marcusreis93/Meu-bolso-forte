@@ -1,119 +1,108 @@
-<!DOCTYPE html><html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Bolso Forte</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17015471577"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17015471577');
-  </script>
-</head>
-<body>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: bold;
+    }
+    .section-title {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      background-color: #e9e9e9;
+      margin-top: 2rem;
+    }
+    .news-list, .discover-section {
+      padding: 1rem 2rem;
+    }
+    .news-item, .discover-item {
+      margin-bottom: 1rem;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+    .news-item img, .discover-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1a1a1a;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head><body>
   <header>
     <h1>Meu Bolso Forte</h1>
     <nav>
-      <ul>
-        <li><a href="#">Início</a></li>
-        <li><a href="#descobrir">Descobrir</a></li>
-        <li><a href="#noticias">Notícias</a></li>
-      </ul>
+      <a href="#">Início</a>
+      <a href="#descobrir">Descobrir</a>
     </nav>
-  </header>  <section id="descobrir">
-    <h2>Descobrir</h2>
-    <div class="descobrir-grid">
-      <a href="https://www.gov.br/pt-br" target="_blank">
-        <img src="https://www.gov.br/pt-br/imagens/sei.png" alt="Gov.br">
-        <span>Governo Federal</span>
-      </a>
-      <a href="https://www.bcb.gov.br" target="_blank">
-        <img src="https://www.bcb.gov.br/imagembanco/logo_bcb.svg" alt="Banco Central">
-        <span>Banco Central</span>
-      </a>
-      <a href="https://www.tesourodireto.com.br" target="_blank">
-        <img src="https://www.tesourodireto.com.br/layout/images/logo.svg" alt="Tesouro Direto">
-        <span>Tesouro Direto</span>
-      </a>
-      <a href="https://www.infomoney.com.br" target="_blank">
-        <img src="https://www.infomoney.com.br/wp-content/themes/infomoney/assets/images/logo.svg" alt="InfoMoney">
-        <span>InfoMoney</span>
-      </a>
-      <a href="https://valorinveste.globo.com/" target="_blank">
-        <img src="https://s2.glbimg.com/x4T0vwZEMjZAvh3-FeFJmrdJChM=/0x0:1024x512/fit-in/1000x500/s.glbimg.com/po/tt2/f/original/2019/03/27/valorinveste.png" alt="Valor Investe">
-        <span>Valor Investe</span>
-      </a>
-      <a href="https://www.seudinheiro.com/" target="_blank">
-        <img src="https://cdn.seudinheiro.com/themes/1.0.0/assets/images/Logo-SD-Horizontal.svg" alt="Seu Dinheiro">
-        <span>Seu Dinheiro</span>
-      </a>
+  </header>  <section class="section-title">Últimas Notícias</section>
+  <div class="news-list" id="news-list"></div>  <section class="section-title" id="descobrir">Descobrir</section>
+  <div class="discover-section">
+    <div class="discover-item">
+      <img src="https://source.unsplash.com/featured/?finance" alt="Finanças">
+      <h3>Finanças Pessoais</h3>
+      <a href="https://www.serasa.com.br/" target="_blank">Saiba mais</a>
     </div>
-  </section>  <section id="noticias">
-    <h2>Últimas Notícias</h2>
-    <div id="noticias-container"></div>
-  </section>  <section id="enquetes">
-    <h2>Enquetes</h2>
-    <div class="enquete">
-      <h3>Você investe mensalmente?</h3>
-      <form>
-        <input type="radio" name="investe" /> Sim<br />
-        <input type="radio" name="investe" /> Não<br />
-        <input type="radio" name="investe" /> Pretendo começar<br />
-      </form>
+    <div class="discover-item">
+      <img src="https://source.unsplash.com/featured/?investments" alt="Investimentos">
+      <h3>Investimentos</h3>
+      <a href="https://www.infomoney.com.br/" target="_blank">Saiba mais</a>
     </div>
-    <div class="enquete">
-      <h3>Você acompanha a taxa SELIC?</h3>
-      <form>
-        <input type="radio" name="selic" /> Sim<br />
-        <input type="radio" name="selic" /> Não<br />
-        <input type="radio" name="selic" /> Às vezes<br />
-      </form>
+    <div class="discover-item">
+      <img src="https://source.unsplash.com/featured/?economy" alt="Economia">
+      <h3>Economia Nacional</h3>
+      <a href="https://valorinveste.globo.com/" target="_blank">Saiba mais</a>
     </div>
-    <div class="enquete">
-      <h3>Você tem uma reserva de emergência?</h3>
-      <form>
-        <input type="radio" name="reserva" /> Sim<br />
-        <input type="radio" name="reserva" /> Não<br />
-        <input type="radio" name="reserva" /> Estou construindo<br />
-      </form>
-    </div>
-    <div class="enquete">
-      <h3>Qual seu conhecimento em finanças?</h3>
-      <form>
-        <input type="radio" name="conhecimento" /> Iniciante<br />
-        <input type="radio" name="conhecimento" /> Intermediário<br />
-        <input type="radio" name="conhecimento" /> Avançado<br />
-      </form>
-    </div>
-  </section>  <footer>
-    <p>© 2025 Meu Bolso Forte - Todos os direitos reservados</p>
+  </div>  <footer>
+    &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
   </footer>  <script>
-    async function carregarNoticias() {
-      try {
-        const response = await fetch('https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=8ce1169b48fe6234c1e8ce8287fbeb29');
-        const data = await response.json();
-        const container = document.getElementById('noticias-container');
-        container.innerHTML = '';
-        data.articles.forEach(article => {
-          const item = document.createElement('div');
-          item.className = 'noticia';
-          item.innerHTML = `
-            <a href="${article.url}" target="_blank">
-              <img src="${article.image}" alt="Imagem da notícia">
-              <h4>${article.title}</h4>
-              <p>${article.description || ''}</p>
-            </a>
-          `;
-          container.appendChild(item);
-        });
-      } catch (error) {
-        console.error('Erro ao carregar notícias:', error);
-      }
+    async function fetchNews() {
+      const res = await fetch('https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=10&apikey=8ce1169b48fe6234c1e8ce8287fbeb29');
+      const data = await res.json();
+      const newsContainer = document.getElementById('news-list');
+      newsContainer.innerHTML = '';
+      data.articles.forEach(article => {
+        const item = document.createElement('div');
+        item.className = 'news-item';
+        item.innerHTML = `
+          <h3>${article.title}</h3>
+          <img src="${article.image}" alt="${article.title}" />
+          <p><a href="${article.url}" target="_blank">Leia mais</a></p>
+        `;
+        newsContainer.appendChild(item);
+      });
     }
-
-    carregarNoticias();
-    setInterval(carregarNoticias, 60000);
+    fetchNews();
+    setInterval(fetchNews, 60000);
   </script></body>
 </html>
