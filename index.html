@@ -1,46 +1,163 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Bolso Forte</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-        header { background: #004080; color: white; padding: 20px; text-align: center; }
-        nav { background: #003366; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; }
-        main { padding: 20px; }
-        footer { background: #004080; color: white; text-align: center; padding: 10px; position: fixed; width: 100%; bottom: 0; }
-        .section { margin-bottom: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Bolso Forte</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    header, footer {
+      background-color: #004080;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    main {
+      padding: 2rem;
+      display: grid;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .resultado {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    h2 {
+      color: #004080;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Meu Bolso Forte</h1>
-        <p>Educação financeira simples e prática para o seu dia a dia</p>
-    </header>
-    <nav>
-        <a href="#">Início</a>
-        <a href="#">Dicas</a>
-        <a href="#">Ferramentas</a>
-        <a href="#">Contato</a>
-    </nav>
-    <main>
-        <div class="section">
-            <h2>Controle seu Dinheiro</h2>
-            <p>Aprenda a fazer seu dinheiro render com dicas práticas de organização financeira.</p>
-        </div>
-        <div class="section">
-            <h2>Planejamento Pessoal</h2>
-            <p>Defina metas e objetivos financeiros que façam sentido para sua realidade.</p>
-        </div>
-        <div class="section">
-            <h2>Use Nossas Ferramentas</h2>
-            <p>Planilhas e calculadoras para te ajudar no controle do orçamento e gastos mensais.</p>
-        </div>
-    </main>
-    <footer>
-        &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
-    </footer>
-</body>
+  <header>
+    <h1>Meu Bolso Forte</h1>
+    <p>Educação Financeira para Todos</p>
+  </header>  <main>
+    <!-- Simulador de Juros Compostos -->
+    <section class="card">
+      <h2>Simulador de Juros Compostos</h2>
+      <input type="number" id="capital" placeholder="Capital Inicial (R$)">
+      <input type="number" id="taxa" placeholder="Taxa de Juros (% ao mês)">
+      <input type="number" id="tempo" placeholder="Tempo (meses)">
+      <button onclick="calcularJuros()">Calcular</button>
+      <div class="resultado" id="resultado"></div>
+    </section><!-- Simulador de Orçamento Mensal -->
+<section class="card">
+  <h2>Simulador de Orçamento Mensal</h2>
+  <input type="number" id="renda" placeholder="Renda Mensal (R$)">
+  <input type="number" id="despesas" placeholder="Total de Despesas (R$)">
+  <button onclick="calcularOrcamento()">Calcular</button>
+  <div class="resultado" id="orcamento"></div>
+</section>
+
+<!-- Newsletter -->
+<section class="card">
+  <h2>Assine nossa Newsletter</h2>
+  <input type="email" id="emailNewsletter" placeholder="Seu email">
+  <button onclick="assinarNewsletter()">Cadastrar</button>
+  <div id="newsletterMsg"></div>
+</section>
+
+<!-- Blog Simples -->
+<section class="card">
+  <h2>Blog - Dicas Financeiras</h2>
+  <article>
+    <h3>Como montar sua reserva de emergência</h3>
+    <p>Descubra por que é essencial ter uma reserva e como começar com pouco dinheiro...</p>
+  </article>
+  <article>
+    <h3>5 hábitos para organizar sua vida financeira</h3>
+    <p>Dicas práticas para manter seu bolso em dia e alcançar seus objetivos...</p>
+  </article>
+</section>
+
+<!-- Calculadora de Metas Financeiras -->
+<section class="card">
+  <h2>Calculadora de Metas Financeiras</h2>
+  <input type="number" id="meta" placeholder="Valor da meta (R$)">
+  <input type="number" id="aporte" placeholder="Aporte mensal (R$)">
+  <input type="number" id="juros" placeholder="Taxa de juros mensal (%)">
+  <button onclick="calcularMeta()">Calcular</button>
+  <div class="resultado" id="resultadoMeta"></div>
+</section>
+
+<!-- Anotações de Despesas -->
+<section class="card">
+  <h2>Minhas Despesas</h2>
+  <textarea id="anotacoes" rows="5" placeholder="Anote suas despesas aqui..."></textarea>
+  <button onclick="salvarAnotacoes()">Salvar Anotações</button>
+  <div class="resultado" id="msgAnotacao"></div>
+</section>
+
+<!-- Formulário do Google -->
+<section class="card">
+  <h2>Cadastro Avançado</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDSEUETESTEURL/formResponse" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+</section>
+
+  </main>  <footer>
+    <p>Meu Bolso Forte - Todos os direitos reservados &copy; 2025</p>
+  </footer>  <script>
+    function calcularJuros() {
+      const capital = parseFloat(document.getElementById('capital').value);
+      const taxa = parseFloat(document.getElementById('taxa').value) / 100;
+      const tempo = parseInt(document.getElementById('tempo').value);
+      if (isNaN(capital) || isNaN(taxa) || isNaN(tempo)) return;
+      const montante = capital * Math.pow((1 + taxa), tempo);
+      document.getElementById('resultado').innerText = `Montante: R$ ${montante.toFixed(2)}`;
+    }
+
+    function calcularOrcamento() {
+      const renda = parseFloat(document.getElementById('renda').value);
+      const despesas = parseFloat(document.getElementById('despesas').value);
+      const sobra = renda - despesas;
+      document.getElementById('orcamento').innerText = sobra >= 0 ? `Sobra: R$ ${sobra.toFixed(2)}` : `Déficit: R$ ${Math.abs(sobra).toFixed(2)}`;
+    }
+
+    function assinarNewsletter() {
+      const email = document.getElementById('emailNewsletter').value;
+      const msg = document.getElementById('newsletterMsg');
+      msg.innerText = email.includes('@') ? 'Email cadastrado com sucesso!' : 'Informe um email válido.';
+      msg.style.color = email.includes('@') ? 'green' : 'red';
+    }
+
+    function calcularMeta() {
+      const meta = parseFloat(document.getElementById('meta').value);
+      const aporte = parseFloat(document.getElementById('aporte').value);
+      const juros = parseFloat(document.getElementById('juros').value) / 100;
+      let total = 0, meses = 0;
+      while (total < meta && meses < 600) {
+        total = (total + aporte) * (1 + juros);
+        meses++;
+      }
+      document.getElementById('resultadoMeta').innerText = `Você alcançará a meta em ${meses} meses.`;
+    }
+
+    function salvarAnotacoes() {
+      const texto = document.getElementById('anotacoes').value;
+      localStorage.setItem('despesas', texto);
+      document.getElementById('msgAnotacao').innerText = 'Despesas salvas!';
+    }
+
+    window.onload = () => {
+      document.getElementById('anotacoes').value = localStorage.getItem('despesas') || '';
+    }
+  </script></body>
 </html>
