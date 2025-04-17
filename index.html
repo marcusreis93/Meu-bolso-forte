@@ -33,11 +33,17 @@
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       padding: 2rem;
+      margin-bottom: 2rem;
     }
     .widget-title {
       font-size: 1.5rem;
       font-weight: 600;
       margin-bottom: 1rem;
+    }
+    iframe {
+      width: 100%;
+      border: none;
+      height: 350px;
     }
     footer {
       text-align: center;
@@ -57,7 +63,21 @@
       <div id="rss-news">
         <script src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="170380/"></script>
       </div>
-    </section>
+    </section><section class="widget-container">
+  <div class="widget-title">Cotação de Moedas</div>
+  <iframe src="https://br.widgets.investing.com/live-currency-cross-rates?theme=lightTheme"></iframe>
+</section>
+
+<section class="widget-container">
+  <div class="widget-title">Simulador de Investimentos</div>
+  <iframe src="https://www.calculadorajuroscompostos.com.br/simulador-de-investimentos/" loading="lazy"></iframe>
+</section>
+
+<section class="widget-container">
+  <div class="widget-title">Calculadora de Juros Compostos</div>
+  <iframe src="https://www.calculadorajuroscompostos.com.br/" loading="lazy"></iframe>
+</section>
+
   </main>  <footer>
     &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
   </footer>
