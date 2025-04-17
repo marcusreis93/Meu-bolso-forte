@@ -3,118 +3,107 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Bolso Forte</title>
-  <link rel="stylesheet" href="style.css" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7637426796351138" crossorigin="anonymous"></script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17015471577"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'AW-17015471577');
-  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #002244;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background: #003366;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 20px;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .headline-carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    .headline-item {
+      flex: 0 0 auto;
+      width: 300px;
+      margin-right: 20px;
+      scroll-snap-align: start;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      background: white;
+    }
+    .headline-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .headline-item h3 {
+      padding: 10px;
+      font-size: 1rem;
+    }
+    footer {
+      background-color: #002244;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <header>
     <h1>Meu Bolso Forte</h1>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#descobrir">Descobrir</a></li>
-        <li><a href="#noticias">Notícias</a></li>
-      </ul>
-    </nav>
-  </header>  <main id="inicio">
-    <section id="descobrir">
-      <h2>Descobrir</h2>
-      <ul class="discover-list">
-        <li><a href="https://www.tesourodireto.com.br" target="_blank">Tesouro Direto</a></li>
-        <li><a href="https://www.b3.com.br" target="_blank">Bolsa de Valores - B3</a></li>
-        <li><a href="https://www.gov.br/pt-br/temas/educacao-financeira" target="_blank">Educação Financeira - Gov</a></li>
-      </ul>
-    </section><section id="enquetes">
-  <h2>Enquetes</h2>
-  <div id="enquete-carrossel" class="carousel">
-    <div class="enquete-slide">
-      <img src="/images/enquete1.png" alt="Enquete 1">
-      <p>Qual seu maior desafio financeiro?</p>
-      <button>Endividamento</button>
-      <button>Investimentos</button>
-      <button>Falta de planejamento</button>
+    <p>Informações e ferramentas para sua vida financeira</p>
+  </header>  <nav>
+    <div>
+      <a href="#">Início</a>
+      <a href="#descobrir">Descobrir</a>
     </div>
-    <div class="enquete-slide">
-      <img src="/images/enquete2.png" alt="Enquete 2">
-      <p>Você costuma guardar dinheiro todo mês?</p>
-      <button>Sim</button>
-      <button>Não</button>
-    </div>
-    <div class="enquete-slide">
-      <img src="/images/enquete3.png" alt="Enquete 3">
-      <p>Qual seu tipo de investimento favorito?</p>
-      <button>Renda fixa</button>
-      <button>Ações</button>
-      <button>Fundos</button>
-    </div>
-  </div>
-</section>
-
-<section id="noticias">
-  <h2>Notícias Atualizadas</h2>
-  <div id="noticias-container">Carregando notícias...</div>
-</section>
-
-  </main>  <footer>
-    <p>© 2025 Meu Bolso Forte - Todos os direitos reservados</p>
+  </nav>  <section class="headline-carousel" id="manchetes">
+    <!-- Manchetes serão inseridas dinamicamente -->
+  </section>  <section id="descobrir" style="padding: 20px; background-color: #fff">
+    <h2>Descobrir</h2>
+    <ul>
+      <li><a href="https://www.tesourodireto.com.br" target="_blank">Tesouro Direto</a></li>
+      <li><a href="https://www.gov.br/pt-br/servicos/enem" target="_blank">Cursos do Governo</a></li>
+      <li><a href="https://br.investing.com/economic-calendar/" target="_blank">Calendário Econômico</a></li>
+    </ul>
+  </section>  <footer>
+    © 2025 Meu Bolso Forte - Todos os direitos reservados
   </footer>  <script>
-    // Carrossel de enquetes
-    let index = 0;
-    function showNextEnquete() {
-      const slides = document.querySelectorAll('.enquete-slide');
-      slides.forEach((slide, i) => slide.style.display = i === index ? 'block' : 'none');
-      index = (index + 1) % slides.length;
-    }
-    setInterval(showNextEnquete, 60000);
-    showNextEnquete();
+    const API_KEY = '8ce1169b48fe6234c1e8ce8287fbeb29';
+    const url = `https://gnews.io/api/v4/top-headlines?category=business&lang=pt&max=20&apikey=${API_KEY}`;
 
-    // Atualizar enquetes automaticamente (placeholder para backend futuro)
-    setInterval(() => {
-      console.log("Atualizando enquetes...");
-    }, 60000);
-
-    // Atualizar notícias automaticamente
-    async function carregarNoticias() {
-      const container = document.getElementById('noticias-container');
-      try {
-        const res = await fetch('https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=8ce1169b48fe6234c1e8ce8287fbeb29');
-        const data = await res.json();
-        container.innerHTML = data.articles.map(noticia => `
-          <div class="noticia">
-            <a href="${noticia.url}" target="_blank">
-              <img src="${noticia.image}" alt="Imagem da notícia">
-              <h3>${noticia.title}</h3>
-              <p>${noticia.description || ''}</p>
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('manchetes');
+        data.articles.forEach(article => {
+          const card = document.createElement('div');
+          card.className = 'headline-item';
+          card.innerHTML = `
+            <a href="${article.url}" target="_blank">
+              <img src="${article.image || 'https://via.placeholder.com/300x180'}" alt="Notícia" />
+              <h3>${article.title}</h3>
             </a>
-          </div>`
-        ).join('');
-      } catch (e) {
-        container.innerHTML = '<p>Erro ao carregar notícias.</p>';
-      }
-    }
-    setInterval(carregarNoticias, 60000);
-    carregarNoticias();
-  </script>  <style>
-    body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin: 0; padding: 0; color: #333; }
-    header { background: #0c4da2; color: white; padding: 1rem; text-align: center; }
-    nav ul { display: flex; justify-content: center; list-style: none; padding: 0; }
-    nav ul li { margin: 0 1rem; }
-    nav ul li a { color: white; text-decoration: none; font-weight: bold; }
-    section { padding: 1.5rem; }
-    .carousel { max-width: 600px; margin: auto; }
-    .enquete-slide { display: none; text-align: center; }
-    .enquete-slide img { max-width: 100%; height: auto; border-radius: 1rem; }
-    .enquete-slide button { margin: 0.5rem; padding: 0.5rem 1rem; border: none; border-radius: 0.5rem; background: #0c4da2; color: white; cursor: pointer; }
-    .noticia { margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem; }
-    .noticia img { max-width: 100%; border-radius: 0.5rem; }
-    .noticia h3 { margin: 0.5rem 0; font-size: 1.1rem; }
-    footer { text-align: center; background: #f1f1f1; padding: 1rem; margin-top: 2rem; }
-  </style></body>
+          `;
+          container.appendChild(card);
+        });
+      });
+  </script></body>
 </html>
