@@ -1,102 +1,145 @@
-<!DOCTYPE html><html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html><html lang="pt-BR"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Bolso Forte</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-    }
-    header {
-      background-color: #0a1f44;
-      color: white;
-      padding: 1rem;
-    }
-    .nav-link {
-      color: white;
-    }
-    .carousel-item img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-    }
-    .manchetes-carousel {
-      margin-top: 20px;
-    }
-    .descobrir {
-      margin-top: 20px;
-    }
-    footer {
-      background-color: #0a1f44;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }header {
+  background-color: #005A9E;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+nav {
+  background-color: #e1ecf4;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #005A9E;
+  text-decoration: none;
+  margin: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+.discover-section {
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+}
+
+.discover-title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.discover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.discover-card {
+  background: #eef4fb;
+  border-radius: 8px;
+  padding: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.discover-card:hover {
+  background: #d9e9f9;
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+  padding: 1rem;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  min-width: 300px;
+  padding: 1rem;
+}
+
+.carousel-item img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #005A9E;
+  color: white;
+}
+
   </style>
-</head>
-<body>
+</head><body>
   <header>
-    <div class="container">
-      <h1>Meu Bolso Forte</h1>
-      <nav class="nav">
-        <a class="nav-link" href="#">Início</a>
-        <a class="nav-link" href="#">Notícias</a>
-        <a class="nav-link" href="#">Descobrir</a>
-        <a class="nav-link" href="#">Aprenda</a>
-        <a class="nav-link" href="#">Ferramentas</a>
-      </nav>
+    <h1>Meu Bolso Forte</h1>
+    <p>Informações atualizadas e ferramentas para sua vida financeira</p>
+  </header>  <nav>
+    <a href="#">Início</a>
+    <a href="#descobrir">Descobrir</a>
+    <a href="#manchetes">Notícias</a>
+  </nav>  <section class="discover-section" id="descobrir">
+    <h2 class="discover-title">Descobrir</h2>
+    <div class="discover-grid">
+      <div class="discover-card" onclick="window.open('https://www.gov.br/pt-br/temas/educacao-financeira', '_blank')">Educação Financeira</div>
+      <div class="discover-card" onclick="window.open('https://www.serasa.com.br/score/', '_blank')">Consulta Score</div>
+      <div class="discover-card" onclick="window.open('https://www.bcb.gov.br/estabilidadefinanceira/poupanca', '_blank')">Simulador Poupança</div>
+      <div class="discover-card" onclick="window.open('https://www.tesourodireto.com.br/', '_blank')">Tesouro Direto</div>
+      <div class="discover-card" onclick="window.open('https://www.melhoresdestinos.com.br/', '_blank')">Melhores Promoções</div>
+      <div class="discover-card" onclick="window.open('https://www.nubank.com.br/blog/tag/planejamento-financeiro/', '_blank')">Planejamento Financeiro</div>
     </div>
-  </header>  <main class="container">
-    <section id="manchetes" class="manchetes-carousel">
-      <div id="carouselManchetes" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" id="manchetesCarousel">
-          <!-- Manchetes atualizadas dinamicamente aqui -->
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselManchetes" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselManchetes" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </section><section id="descobrir" class="descobrir">
-  <h2>Descobrir</h2>
-  <ul class="list-group">
-    <li class="list-group-item"><a href="https://www.infomoney.com.br/ultimas-noticias/" target="_blank">Últimas Notícias</a></li>
-    <li class="list-group-item"><a href="https://www.infomoney.com.br/mercados/" target="_blank">Mercados</a></li>
-    <li class="list-group-item"><a href="https://www.infomoney.com.br/economia/" target="_blank">Economia</a></li>
-    <li class="list-group-item"><a href="https://www.infomoney.com.br/onde-investir/" target="_blank">Onde Investir</a></li>
-    <li class="list-group-item"><a href="https://www.infomoney.com.br/business/" target="_blank">Business</a></li>
-    <li class="list-group-item"><a href="https://www.infomoney.com.br/trader/" target="_blank">Trader</a></li>
-  </ul>
-</section>
-
-  </main>  <footer>
-    <p>© 2025 Meu Bolso Forte - Todos os direitos reservados</p>
+  </section>  <section id="manchetes">
+    <h2 style="padding: 1rem 2rem;">Últimas Manchetes</h2>
+    <div class="carousel" id="news-carousel"></div>
+  </section>  <footer>
+    © 2025 Meu Bolso Forte - Todos os direitos reservados
   </footer>  <script>
-    async function atualizarManchetes() {
-      const response = await fetch('https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=8ce1169b48fe6234c1e8ce8287fbeb29');
-      const data = await response.json();
-      const container = document.getElementById("manchetesCarousel");
-      container.innerHTML = "";
-      data.articles.forEach((noticia, index) => {
-        const item = document.createElement("div");
-        item.className = `carousel-item${index === 0 ? ' active' : ''}`;
-        item.innerHTML = `
-          <a href="${noticia.url}" target="_blank">
-            <img src="${noticia.image || 'https://via.placeholder.com/600x300'}" alt="${noticia.title}" class="d-block w-100">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>${noticia.title}</h5>
-            </div>
-          </a>
-        `;
-        container.appendChild(item);
-      });
+    const API_KEY = '8ce1169b48fe6234c1e8ce8287fbeb29';
+    const newsContainer = document.getElementById('news-carousel');
+
+    async function loadNews() {
+      try {
+        const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=${API_KEY}`);
+        const data = await response.json();
+        newsContainer.innerHTML = '';
+
+        data.articles.forEach(article => {
+          const item = document.createElement('div');
+          item.className = 'carousel-item';
+          item.innerHTML = `
+            <img src="${article.image || 'https://via.placeholder.com/300'}" alt="imagem da notícia">
+            <h3>${article.title}</h3>
+            <p>${article.description || ''}</p>
+            <a href="${article.url}" target="_blank">Leia mais</a>
+          `;
+          newsContainer.appendChild(item);
+        });
+      } catch (error) {
+        newsContainer.innerHTML = '<p>Erro ao carregar notícias.</p>';
+      }
     }
 
-    atualizarManchetes();
-    setInterval(atualizarManchetes, 60000);
-  </script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script></body>
-</html>
+    setInterval(loadNews, 60000);
+    loadNews();
+  </script></body></html>
