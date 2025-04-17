@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -81,54 +80,51 @@
   <header>
     <h1>Meu Bolso Forte</h1>
     <p>Informações e ferramentas para sua vida financeira</p>
-  </header>
-
-  <main>
-    <!-- Cotação de Moedas -->
+  </header>  <main>
     <section class="widget-container">
       <div class="widget-title">Cotação de Moedas</div>
       <iframe src="https://br.widgets.investing.com/live-currency-cross-rates?theme=lightTheme"></iframe>
-    </section>
+    </section><section class="widget-container">
+  <div class="widget-title">Simulador de Investimentos</div>
+  <iframe src="https://www.calculadorajuroscompostos.com.br/simulador-de-investimentos/" loading="lazy"></iframe>
+</section>
 
-    <!-- Simulador de Investimentos -->
-    <section class="widget-container">
-      <div class="widget-title">Simulador de Investimentos</div>
-      <iframe src="https://www.calculadorajuroscompostos.com.br/simulador-de-investimentos/" loading="lazy"></iframe>
-    </section>
+<section class="widget-container">
+  <div class="widget-title">Calculadora de Juros Compostos</div>
+  <iframe src="https://www.calculadorajuroscompostos.com.br/" loading="lazy"></iframe>
+</section>
 
-    <!-- Calculadora de Juros Compostos -->
-    <section class="widget-container">
-      <div class="widget-title">Calculadora de Juros Compostos</div>
-      <iframe src="https://www.calculadorajuroscompostos.com.br/" loading="lazy"></iframe>
-    </section>
+<section class="widget-container">
+  <div class="widget-title">Calculadora de Imposto de Renda</div>
+  <iframe src="https://www.calculadorajuridica.com.br/calculadora-imposto-de-renda" loading="lazy"></iframe>
+</section>
 
-    <!-- Calculadora de Imposto de Renda -->
-    <section class="widget-container">
-      <div class="widget-title">Calculadora de Imposto de Renda</div>
-      <iframe src="https://www.calculadorajuridica.com.br/calculadora-imposto-de-renda" loading="lazy"></iframe>
-    </section>
+<section class="widget-container">
+  <div class="widget-title">Taxa Selic Atual</div>
+  <p id="selic" style="font-size: 1.5rem; color: #1e88e5;">Carregando...</p>
+</section>
 
-    <!-- Taxa Selic Atualizada -->
-    <section class="widget-container">
-      <div class="widget-title">Taxa Selic Atual</div>
-      <iframe src="https://www.neoconomics.com.br/widgets/taxa-selic/" width="100%" height="180" style="border:none;" loading="lazy"></iframe>
-    </section>
+<section class="widget-container">
+  <div class="widget-title">Calculadora de Empréstimos</div>
+  <iframe src="https://www.calculadorajuroscompostos.com.br/calculadora-de-emprestimos/" loading="lazy"></iframe>
+</section>
 
-    <!-- Calculadora de Empréstimos -->
-    <section class="widget-container">
-      <div class="widget-title">Calculadora de Empréstimos</div>
-      <iframe src="https://www.calculadorajuroscompostos.com.br/calculadora-de-emprestimos/" loading="lazy"></iframe>
-    </section>
+<section class="widget-container">
+  <div class="widget-title">Quer mais ferramentas financeiras?</div>
+  <button class="button">Confira todos os simuladores</button>
+</section>
 
-    <!-- Botão de Ação -->
-    <section class="widget-container">
-      <div class="widget-title">Quer mais ferramentas financeiras?</div>
-      <button class="button">Confira todos os simuladores</button>
-    </section>
-  </main>
-
-  <footer>
+  </main>  <footer>
     &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
-  </footer>
-</body>
+  </footer>  <script>
+    fetch("https://api.bcb.gov.br/dados/serie/bcdata.sgs.4189/dados/ultimos/1?formato=json")
+      .then(response => response.json())
+      .then(data => {
+        const selic = data[0].valor.replace('.', ',');
+        document.getElementById("selic").innerText = `Selic: ${selic}% ao ano`;
+      })
+      .catch(() => {
+        document.getElementById("selic").innerText = "Não foi possível carregar a Selic.";
+      });
+  </script></body>
 </html>
