@@ -1,148 +1,153 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Bolso Forte</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
       margin: 0;
-      background: #f3f4f6;
-      color: #111;
+      padding: 0;
     }
-    header, footer {
-      background-color: #1b1b1b;
-      color: #fff;
-      padding: 20px;
+    header {
+      background-color: #0078D4;
+      color: white;
+      padding: 1em;
       text-align: center;
     }
     nav {
-      background-color: #2d2d2d;
       display: flex;
       justify-content: center;
-      padding: 10px;
-      flex-wrap: wrap;
+      background: #e1e1e1;
+      padding: 0.5em;
     }
     nav a {
-      color: #fff;
-      margin: 5px 15px;
+      margin: 0 1em;
       text-decoration: none;
+      color: #333;
       font-weight: bold;
     }
-    .search-bar {
-      margin: 10px auto;
-      text-align: center;
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin: 1em 0;
     }
-    .search-bar input[type="text"] {
-      padding: 10px;
-      width: 80%;
-      max-width: 400px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
+    .search-container input {
+      width: 300px;
+      padding: 0.5em;
     }
-    .news-section {
+    .section-title {
+      font-size: 1.5em;
+      margin: 1em;
+      color: #333;
+    }
+    .discover-section, .news-section {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 15px;
-      padding: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1em;
+      padding: 1em;
     }
-    .news-card {
+    .card {
       background: white;
       border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .news-card img {
+    .card img {
       width: 100%;
-      height: 160px;
+      height: 150px;
       object-fit: cover;
     }
-    .news-card h3 {
-      font-size: 18px;
-      margin: 10px;
+    .card h3 {
+      margin: 0.5em;
+      font-size: 1.1em;
     }
-    .news-card a {
-      color: #0078d7;
+    .card a {
       text-decoration: none;
-      margin: 10px;
-      font-weight: bold;
+      color: #0078D4;
+      display: block;
+      margin: 0.5em;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
     }
     .subscribe {
-      padding: 20px;
-      background: #fff;
       text-align: center;
+      margin: 2em;
     }
     .subscribe input[type="email"] {
-      padding: 10px;
+      padding: 0.5em;
       width: 250px;
-      margin-right: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    .subscribe button {
-      padding: 10px 20px;
-      border: none;
-      background-color: #0078d7;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
     }
   </style>
+  <script>
+    function searchSite() {
+      const input = document.getElementById("siteSearch").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(input) ? "block" : "none";
+      });
+    }
+  </script>
 </head>
 <body>
   <header>
     <h1>Meu Bolso Forte</h1>
-    <p>Informações financeiras no estilo Microsoft Edge</p>
-  </header>  <nav>
-    <a href="#">Início</a>
+    <p>Informações e ferramentas para sua vida financeira</p>
+  </header>
+  <nav>
     <a href="#descobrir">Descobrir</a>
     <a href="#noticias">Notícias</a>
-  </nav>  <div class="search-bar">
-    <input type="text" placeholder="Pesquisar por tópicos, palavras-chave, etc..." />
-  </div>  <section id="descobrir" class="news-section">
-    <div class="news-card">
-      <img src="https://source.unsplash.com/300x200/?education" alt="Cursos">
-      <h3><a href="https://www.ev.org.br/">Fundação Bradesco</a></h3>
+  </nav>
+  <div class="search-container">
+    <input type="text" id="siteSearch" onkeyup="searchSite()" placeholder="Buscar no site...">
+  </div>
+  <section id="descobrir">
+    <h2 class="section-title">Descobrir</h2>
+    <div class="discover-section">
+      <div class="card">
+        <img src="https://via.placeholder.com/400x150?text=Curso+de+Educa%C3%A7%C3%A3o+Financeira" alt="Curso Educação Financeira">
+        <h3>Curso de Educação Financeira</h3>
+        <a href="https://www.ev.org.br/cursos/educacao-financeira" target="_blank">Acesse o curso</a>
+      </div>
+      <div class="card">
+        <img src="https://via.placeholder.com/400x150?text=Or%C3%A7amento+Pessoal" alt="Orçamento Pessoal">
+        <h3>Como montar um orçamento</h3>
+        <a href="https://www.serasa.com.br/ensina/como-fazer-um-orcamento-pessoal" target="_blank">Veja o guia</a>
+      </div>
     </div>
-    <div class="news-card">
-      <img src="https://source.unsplash.com/300x200/?technology" alt="Senai">
-      <h3><a href="https://www.portaldaindustria.com.br/senai/canais/cursos-gratuitos/">Senai Cursos</a></h3>
-    </div>
-    <div class="news-card">
-      <img src="https://source.unsplash.com/300x200/?business" alt="Sebrae">
-      <h3><a href="https://www.sebrae.com.br/sites/PortalSebrae/cursosonline">Cursos Sebrae</a></h3>
-    </div>
-  </section>  <section id="noticias" class="news-section" style="margin-top: 20px">
-    <!-- Manchetes com imagens serão inseridas dinamicamente aqui -->
-  </section>  <section class="subscribe">
-    <h2>Receba atualizações no seu e-mail</h2>
-    <input type="email" placeholder="Digite seu e-mail" />
-    <button>Inscrever</button>
-  </section>  <footer>
-    &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
-  </footer>  <script>
-    async function carregarManchetes() {
-      const resposta = await fetch('https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=8ce1169b48fe6234c1e8ce8287fbeb29');
-      const dados = await resposta.json();
-      const noticias = dados.articles;
-      const container = document.querySelector('#noticias');
-
-      noticias.forEach(noticia => {
-        const card = document.createElement('div');
-        card.className = 'news-card';
-
-        card.innerHTML = `
-          <img src="${noticia.image || 'https://via.placeholder.com/300x200'}" alt="imagem">
-          <h3>${noticia.title}</h3>
-          <a href="${noticia.url}" target="_blank">Leia mais</a>
-        `;
-
-        container.appendChild(card);
+  </section>
+  <section id="noticias">
+    <h2 class="section-title">Últimas Notícias</h2>
+    <div class="news-section" id="news-container"></div>
+  </section>
+  <div class="subscribe">
+    <h2>Receba atualizações por e-mail</h2>
+    <input type="email" placeholder="Digite seu e-mail">
+    <button>Inscrever-se</button>
+  </div>
+  <footer>
+    © 2025 Meu Bolso Forte - Todos os direitos reservados
+  </footer>
+  <script>
+    fetch('https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=8ce1169b48fe6234c1e8ce8287fbeb29')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("news-container");
+        container.innerHTML = data.articles.map(article => `
+          <div class="card">
+            <img src="${article.image || 'https://via.placeholder.com/400x150?text=Not%C3%ADcia'}" alt="Imagem da notícia">
+            <h3>${article.title}</h3>
+            <a href="${article.url}" target="_blank">Leia mais</a>
+          </div>
+        `).join("");
       });
-    }
-
-    carregarManchetes();
-  </script></body>
+  </script>
+</body>
 </html>
