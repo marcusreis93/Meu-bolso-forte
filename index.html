@@ -1,163 +1,160 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Bolso Forte</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f4f4f4;
+      background: #f3f4f6;
+      color: #111827;
     }
-    header, footer {
-      background-color: #004080;
+    header {
+      background: linear-gradient(to right, #4f46e5, #3b82f6);
       color: white;
-      padding: 1rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
-    main {
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
       padding: 2rem;
-      display: grid;
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
     }
     .card {
       background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin: 1.5rem 0;
+      padding: 1.5rem;
+      transition: 0.3s ease;
     }
-    input, button, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-    .resultado {
-      margin-top: 1rem;
-      font-weight: bold;
+    .card:hover {
+      transform: scale(1.02);
     }
     h2 {
-      color: #004080;
+      color: #2563eb;
+    }
+    input, button, textarea {
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    button {
+      background: #2563eb;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1d4ed8;
+    }
+    .post {
+      background: #e0f2fe;
+      padding: 1rem;
+      border-left: 5px solid #0284c7;
+      margin: 1rem 0;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Meu Bolso Forte</h1>
-    <p>Educação Financeira para Todos</p>
-  </header>  <main>
-    <!-- Simulador de Juros Compostos -->
-    <section class="card">
-      <h2>Simulador de Juros Compostos</h2>
-      <input type="number" id="capital" placeholder="Capital Inicial (R$)">
-      <input type="number" id="taxa" placeholder="Taxa de Juros (% ao mês)">
-      <input type="number" id="tempo" placeholder="Tempo (meses)">
-      <button onclick="calcularJuros()">Calcular</button>
-      <div class="resultado" id="resultado"></div>
-    </section><!-- Simulador de Orçamento Mensal -->
-<section class="card">
-  <h2>Simulador de Orçamento Mensal</h2>
-  <input type="number" id="renda" placeholder="Renda Mensal (R$)">
-  <input type="number" id="despesas" placeholder="Total de Despesas (R$)">
-  <button onclick="calcularOrcamento()">Calcular</button>
-  <div class="resultado" id="orcamento"></div>
-</section>
+    <p>Seu guia prático para organizar as finanças com estilo!</p>
+  </header>  <div class="container">
+    <div class="card">
+      <h2>Calculadora de Metas</h2>
+      <label for="meta">Meta financeira:</label>
+      <input type="number" id="meta">
+      <label for="tempo">Meses para atingir:</label>
+      <input type="number" id="tempo">
+      <button onclick="calcularMeta()">Calcular</button>
+      <p id="resultado"></p>
+    </div><div class="card">
+  <h2>Controle de Despesas</h2>
+  <textarea id="despesas" placeholder="Digite suas despesas..."></textarea>
+  <button onclick="salvarDespesas()">Salvar</button>
+</div>
 
-<!-- Newsletter -->
-<section class="card">
-  <h2>Assine nossa Newsletter</h2>
-  <input type="email" id="emailNewsletter" placeholder="Seu email">
-  <button onclick="assinarNewsletter()">Cadastrar</button>
-  <div id="newsletterMsg"></div>
-</section>
+<div class="card">
+  <h2>Resumo Gráfico das Despesas</h2>
+  <canvas id="graficoDespesas" height="200"></canvas>
+</div>
 
-<!-- Blog Simples -->
-<section class="card">
-  <h2>Blog - Dicas Financeiras</h2>
-  <article>
-    <h3>Como montar sua reserva de emergência</h3>
-    <p>Descubra por que é essencial ter uma reserva e como começar com pouco dinheiro...</p>
-  </article>
-  <article>
-    <h3>5 hábitos para organizar sua vida financeira</h3>
-    <p>Dicas práticas para manter seu bolso em dia e alcançar seus objetivos...</p>
-  </article>
-</section>
+<div class="card">
+  <h2>Cadastro de Interesse</h2>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdXXXXX/viewform?embedded=true" width="100%" height="500" frameborder="0">Carregando…</iframe>
+</div>
 
-<!-- Calculadora de Metas Financeiras -->
-<section class="card">
-  <h2>Calculadora de Metas Financeiras</h2>
-  <input type="number" id="meta" placeholder="Valor da meta (R$)">
-  <input type="number" id="aporte" placeholder="Aporte mensal (R$)">
-  <input type="number" id="juros" placeholder="Taxa de juros mensal (%)">
-  <button onclick="calcularMeta()">Calcular</button>
-  <div class="resultado" id="resultadoMeta"></div>
-</section>
+<div class="card">
+  <h2>Posts Recentes</h2>
+  <div class="post">
+    <h3>5 Passos para Sair das Dívidas</h3>
+    <p>Descubra estratégias simples e eficazes para recuperar o controle financeiro ainda este mês.</p>
+  </div>
+  <div class="post">
+    <h3>Como Organizar seu Orçamento com Apenas 3 Planilhas</h3>
+    <p>Ferramentas práticas para você baixar e usar gratuitamente.</p>
+  </div>
+  <div class="post">
+    <h3>Você conhece o método 50/30/20?</h3>
+    <p>Descubra como dividir sua renda entre necessidades, desejos e investimentos com inteligência!</p>
+  </div>
+</div>
 
-<!-- Anotações de Despesas -->
-<section class="card">
-  <h2>Minhas Despesas</h2>
-  <textarea id="anotacoes" rows="5" placeholder="Anote suas despesas aqui..."></textarea>
-  <button onclick="salvarAnotacoes()">Salvar Anotações</button>
-  <div class="resultado" id="msgAnotacao"></div>
-</section>
-
-<!-- Formulário do Google -->
-<section class="card">
-  <h2>Cadastro Avançado</h2>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdDSEUETESTEURL/formResponse" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
-</section>
-
-  </main>  <footer>
-    <p>Meu Bolso Forte - Todos os direitos reservados &copy; 2025</p>
-  </footer>  <script>
-    function calcularJuros() {
-      const capital = parseFloat(document.getElementById('capital').value);
-      const taxa = parseFloat(document.getElementById('taxa').value) / 100;
-      const tempo = parseInt(document.getElementById('tempo').value);
-      if (isNaN(capital) || isNaN(taxa) || isNaN(tempo)) return;
-      const montante = capital * Math.pow((1 + taxa), tempo);
-      document.getElementById('resultado').innerText = `Montante: R$ ${montante.toFixed(2)}`;
-    }
-
-    function calcularOrcamento() {
-      const renda = parseFloat(document.getElementById('renda').value);
-      const despesas = parseFloat(document.getElementById('despesas').value);
-      const sobra = renda - despesas;
-      document.getElementById('orcamento').innerText = sobra >= 0 ? `Sobra: R$ ${sobra.toFixed(2)}` : `Déficit: R$ ${Math.abs(sobra).toFixed(2)}`;
-    }
-
-    function assinarNewsletter() {
-      const email = document.getElementById('emailNewsletter').value;
-      const msg = document.getElementById('newsletterMsg');
-      msg.innerText = email.includes('@') ? 'Email cadastrado com sucesso!' : 'Informe um email válido.';
-      msg.style.color = email.includes('@') ? 'green' : 'red';
-    }
-
+  </div>  <script>
     function calcularMeta() {
-      const meta = parseFloat(document.getElementById('meta').value);
-      const aporte = parseFloat(document.getElementById('aporte').value);
-      const juros = parseFloat(document.getElementById('juros').value) / 100;
-      let total = 0, meses = 0;
-      while (total < meta && meses < 600) {
-        total = (total + aporte) * (1 + juros);
-        meses++;
-      }
-      document.getElementById('resultadoMeta').innerText = `Você alcançará a meta em ${meses} meses.`;
+      const meta = document.getElementById("meta").value;
+      const tempo = document.getElementById("tempo").value;
+      const resultado = meta / tempo;
+      document.getElementById("resultado").innerText = `Você precisa guardar R$ ${resultado.toFixed(2)} por mês.`;
     }
 
-    function salvarAnotacoes() {
-      const texto = document.getElementById('anotacoes').value;
-      localStorage.setItem('despesas', texto);
-      document.getElementById('msgAnotacao').innerText = 'Despesas salvas!';
+    function salvarDespesas() {
+      const dados = document.getElementById("despesas").value;
+      localStorage.setItem("despesas", dados);
+      alert("Despesas salvas!");
+      desenharGrafico(dados);
+    }
+
+    function desenharGrafico(dadosTexto) {
+      const despesas = dadosTexto.split("\n").map(l => l.trim()).filter(Boolean);
+      const categorias = {};
+      despesas.forEach(item => {
+        const partes = item.split(":");
+        const categoria = partes[0] || "Outro";
+        const valor = parseFloat(partes[1]) || 0;
+        categorias[categoria] = (categorias[categoria] || 0) + valor;
+      });
+
+      const ctx = document.getElementById("graficoDespesas").getContext("2d");
+      new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: Object.keys(categorias),
+          datasets: [{
+            data: Object.values(categorias),
+            backgroundColor: ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#6366f1"]
+          }]
+        }
+      });
     }
 
     window.onload = () => {
-      document.getElementById('anotacoes').value = localStorage.getItem('despesas') || '';
+      const salvos = localStorage.getItem("despesas");
+      if(salvos) {
+        document.getElementById("despesas").value = salvos;
+        desenharGrafico(salvos);
+      }
     }
   </script></body>
 </html>
