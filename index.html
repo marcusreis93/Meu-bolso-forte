@@ -1,210 +1,154 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Bolso Forte</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f3f4f6;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: linear-gradient(to right, #4f46e5, #3b82f6);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 1rem;
-    }
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      margin: 1.5rem 0;
-      padding: 1.5rem;
-      transition: 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    h2 {
-      color: #2563eb;
-    }
-    input, button, textarea {
-      padding: 0.7rem;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      width: 100%;
-      margin-top: 0.5rem;
-    }
-    button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #1d4ed8;
-    }
-    .post {
-      background: #e0f2fe;
-      padding: 1rem;
-      border-left: 5px solid #0284c7;
-      margin: 1rem 0;
-    }
-    #loginContainer {
-      display: none;
-    }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f5f7fa; }
+    header, footer { background-color: #343a40; color: white; padding: 1rem; }
+    .hero { background: linear-gradient(to right, #007bff, #00c6ff); color: white; padding: 3rem 1rem; text-align: center; }
+    .post { background: white; padding: 1rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 1rem; }
+    .form-control, .btn { border-radius: 10px; }
+    iframe, canvas { width: 100%; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Meu Bolso Forte</h1>
-    <p>Seu guia prático para organizar as finanças com estilo!</p>
-  </header>  <div class="container"><div class="card" id="loginContainer">
-  <h2>Login</h2>
-  <input type="text" id="usuario" placeholder="Usuário">
-  <input type="password" id="senha" placeholder="Senha">
-  <button onclick="login()">Entrar</button>
-</div>
-
-<div class="card" id="areaLogada" style="display:none">
-  <h2>Bem-vindo, <span id="userName"></span>!</h2>
-  <button onclick="logout()">Sair</button>
-</div>
-
-<div class="card">
-  <h2>Calculadora de Metas</h2>
-  <input type="number" id="meta" placeholder="Meta financeira">
-  <input type="number" id="tempo" placeholder="Meses">
-  <button onclick="calcularMeta()">Calcular</button>
-  <p id="resultado"></p>
-</div>
-
-<div class="card">
-  <h2>Controle de Despesas</h2>
-  <textarea id="despesas" placeholder="Ex: Alimentação:300\nTransporte:150"></textarea>
-  <button onclick="salvarDespesas()">Salvar</button>
-</div>
-
-<div class="card">
-  <h2>Resumo Gráfico</h2>
-  <canvas id="graficoDespesas" height="200"></canvas>
-</div>
-
-<div class="card">
-  <h2>Blog Financeiro</h2>
-  <textarea id="novoPost" placeholder="Digite seu post..."></textarea>
-  <button onclick="adicionarPost()">Publicar</button>
-  <div id="listaPosts"></div>
-</div>
-
-<div class="card">
-  <h2>Cadastro</h2>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdXXXXX/viewform?embedded=true" width="100%" height="500" frameborder="0">Carregando…</iframe>
-</div>
-
-<div class="card">
-  <h2>Anúncio</h2>
-  <!-- Substitua o código abaixo pelo fornecido pelo Google AdSense -->
-  <div style="background:#d1fae5; padding:1rem; text-align:center">
-    [ESPACO PARA ANÚNCIO GOOGLE ADSENSE]
+    <h1 class="text-center">Meu Bolso Forte</h1>
+  </header>  <div class="hero">
+    <h2>Controle suas finanças com inteligência</h2>
+    <p>Ferramentas práticas, conteúdo de qualidade e recursos gratuitos para você prosperar!</p>
+  </div>  <div class="container my-4">
+    <div class="row">
+      <!-- Calculadora de Metas -->
+      <div class="col-md-6">
+        <h4>Calculadora de Metas</h4>
+        <input id="meta" class="form-control mb-2" type="number" placeholder="Meta (R$)">
+        <input id="prazo" class="form-control mb-2" type="number" placeholder="Prazo (meses)">
+        <button class="btn btn-primary w-100" onclick="calcularMeta()">Calcular</button>
+        <p id="resultadoMeta" class="mt-2"></p>
+      </div><!-- Controle de Gastos -->
+  <div class="col-md-6">
+    <h4>Controle de Gastos</h4>
+    <input id="descGasto" class="form-control mb-2" placeholder="Descrição">
+    <input id="valorGasto" class="form-control mb-2" type="number" placeholder="Valor (R$)">
+    <button class="btn btn-success w-100" onclick="adicionarGasto()">Adicionar</button>
+    <canvas id="graficoGastos" class="mt-3"></canvas>
   </div>
 </div>
 
-  </div>  <script>
-    // LOGIN SIMPLES
-    function login() {
-      const user = document.getElementById('usuario').value;
-      const pass = document.getElementById('senha').value;
-      if (user && pass) {
-        localStorage.setItem('userLogado', user);
-        document.getElementById('userName').innerText = user;
-        document.getElementById('loginContainer').style.display = 'none';
-        document.getElementById('areaLogada').style.display = 'block';
-      }
-    }
-    function logout() {
-      localStorage.removeItem('userLogado');
-      location.reload();
-    }
+<!-- Postagens -->
+<div class="mt-5">
+  <h4>Últimos Posts</h4>
+  <div id="posts"></div>
+  <textarea id="novoPost" class="form-control mb-2" placeholder="Compartilhe algo..."></textarea>
+  <button class="btn btn-secondary w-100" onclick="adicionarPost()">Publicar</button>
+</div>
 
-    // POSTS
-    function adicionarPost() {
-      const texto = document.getElementById('novoPost').value;
-      if (!texto) return;
-      const posts = JSON.parse(localStorage.getItem('posts')) || [];
-      posts.unshift(texto);
-      localStorage.setItem('posts', JSON.stringify(posts));
-      mostrarPosts();
-      document.getElementById('novoPost').value = '';
-    }
-    function mostrarPosts() {
-      const posts = JSON.parse(localStorage.getItem('posts')) || [];
-      const container = document.getElementById('listaPosts');
-      container.innerHTML = '';
-      posts.forEach(p => {
-        container.innerHTML += `<div class='post'>${p}</div>`;
-      });
-    }
+<!-- Cursos gratuitos -->
+<div class="mt-5">
+  <h4>Cursos Gratuitos</h4>
+  <ul>
+    <li><a href="https://www.ev.org.br/" target="_blank">Fundação Bradesco</a></li>
+    <li><a href="https://www.coursera.org/" target="_blank">Coursera</a></li>
+    <li><a href="https://www.edx.org/" target="_blank">edX</a></li>
+    <li><a href="https://www.udemy.com/" target="_blank">Udemy (alguns gratuitos)</a></li>
+  </ul>
+</div>
 
-    // GRÁFICO
-    function salvarDespesas() {
-      const dados = document.getElementById("despesas").value;
-      localStorage.setItem("despesas", dados);
-      desenharGrafico(dados);
-    }
-    function desenharGrafico(dadosTexto) {
-      const despesas = dadosTexto.split("\n").map(l => l.trim()).filter(Boolean);
-      const categorias = {};
-      despesas.forEach(item => {
-        const partes = item.split(":");
-        const categoria = partes[0] || "Outro";
-        const valor = parseFloat(partes[1]) || 0;
-        categorias[categoria] = (categorias[categoria] || 0) + valor;
-      });
-      const ctx = document.getElementById("graficoDespesas").getContext("2d");
-      new Chart(ctx, {
-        type: "pie",
-        data: {
-          labels: Object.keys(categorias),
-          datasets: [{
-            data: Object.values(categorias),
-            backgroundColor: ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#6366f1"]
-          }]
-        }
-      });
-    }
+<!-- Simulador de Investimentos -->
+<div class="mt-5">
+  <h4>Simulador de Investimentos</h4>
+  <input id="investimento" class="form-control mb-2" type="number" placeholder="Valor inicial (R$)">
+  <input id="juros" class="form-control mb-2" type="number" placeholder="Juros ao mês (%)">
+  <input id="meses" class="form-control mb-2" type="number" placeholder="Período (meses)">
+  <button class="btn btn-info w-100" onclick="simularInvestimento()">Simular</button>
+  <p id="resultadoInvestimento" class="mt-2"></p>
+</div>
 
+<!-- Conversor de Moedas -->
+<div class="mt-5">
+  <h4>Conversor de Moedas</h4>
+  <input id="valorReal" class="form-control mb-2" type="number" placeholder="Valor em R$">
+  <select id="moeda" class="form-control mb-2">
+    <option value="5.10">Dólar (USD)</option>
+    <option value="5.50">Euro (EUR)</option>
+    <option value="0.026">Peso Argentino (ARS)</option>
+  </select>
+  <button class="btn btn-warning w-100" onclick="converterMoeda()">Converter</button>
+  <p id="resultadoConversao" class="mt-2"></p>
+</div>
+
+<!-- Formulário de Cadastro -->
+<div class="mt-5">
+  <h4>Cadastre-se para Novidades</h4>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdEg99SeuExemplo/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+</div>
+
+<!-- Anúncios -->
+<div class="mt-5 text-center">
+  <h4>Anúncio</h4>
+  <div style="background:#eee; padding: 20px;">Espaço para anúncio do Google AdSense</div>
+</div>
+
+  </div>  <footer class="text-center">
+    <p>&copy; 2025 Meu Bolso Forte. Todos os direitos reservados.</p>
+  </footer>  <script>
     function calcularMeta() {
-      const meta = document.getElementById("meta").value;
-      const tempo = document.getElementById("tempo").value;
-      const resultado = meta / tempo;
-      document.getElementById("resultado").innerText = `Você precisa guardar R$ ${resultado.toFixed(2)} por mês.`;
+      const meta = parseFloat(document.getElementById("meta").value);
+      const prazo = parseInt(document.getElementById("prazo").value);
+      const mensal = meta / prazo;
+      document.getElementById("resultadoMeta").innerText = `Você precisa guardar R$ ${mensal.toFixed(2)} por mês.`;
     }
 
-    window.onload = () => {
-      const user = localStorage.getItem('userLogado');
-      if (user) {
-        document.getElementById('userName').innerText = user;
-        document.getElementById('loginContainer').style.display = 'none';
-        document.getElementById('areaLogada').style.display = 'block';
-      } else {
-        document.getElementById('loginContainer').style.display = 'block';
+    let dadosGastos = [];
+    function adicionarGasto() {
+      const desc = document.getElementById("descGasto").value;
+      const valor = parseFloat(document.getElementById("valorGasto").value);
+      if (desc && valor) {
+        dadosGastos.push({ desc, valor });
+        atualizarGrafico();
       }
-      const salvos = localStorage.getItem("despesas");
-      if(salvos) {
-        document.getElementById("despesas").value = salvos;
-        desenharGrafico(salvos);
+    }
+
+    function atualizarGrafico() {
+      const ctx = document.getElementById('graficoGastos').getContext('2d');
+      const labels = dadosGastos.map(g => g.desc);
+      const valores = dadosGastos.map(g => g.valor);
+      new Chart(ctx, {
+        type: 'bar',
+        data: { labels, datasets: [{ label: 'Gastos', data: valores, backgroundColor: '#007bff' }] },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+      });
+    }
+
+    function adicionarPost() {
+      const post = document.getElementById("novoPost").value;
+      if (post) {
+        const container = document.getElementById("posts");
+        const div = document.createElement("div");
+        div.classList.add("post");
+        div.innerText = post;
+        container.prepend(div);
+        document.getElementById("novoPost").value = "";
       }
-      mostrarPosts();
+    }
+
+    function simularInvestimento() {
+      const valor = parseFloat(document.getElementById("investimento").value);
+      const juros = parseFloat(document.getElementById("juros").value) / 100;
+      const meses = parseInt(document.getElementById("meses").value);
+      const resultado = valor * Math.pow((1 + juros), meses);
+      document.getElementById("resultadoInvestimento").innerText = `Valor final: R$ ${resultado.toFixed(2)}`;
+    }
+
+    function converterMoeda() {
+      const real = parseFloat(document.getElementById("valorReal").value);
+      const cotacao = parseFloat(document.getElementById("moeda").value);
+      const convertido = real / cotacao;
+      document.getElementById("resultadoConversao").innerText = `Valor convertido: ${convertido.toFixed(2)}`;
     }
   </script></body>
 </html>
