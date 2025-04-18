@@ -1,64 +1,100 @@
-<section class="manchetes-container">
-  <h2>Últimas Manchetes</h2>
-  <div id="manchetes-lista" class="manchetes-lista"></div>
-</section><style>
-  .manchetes-container {
-    padding: 20px;
-    background-color: #f0f4f8;
-  }
-  .manchetes-lista {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-  }
-  .manchete-item {
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.2s;
-  }
-  .manchete-item:hover {
-    transform: scale(1.02);
-  }
-  .manchete-img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-  }
-  .manchete-texto {
-    padding: 15px;
-  }
-  .manchete-texto a {
-    color: #111;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-  }
-</style><script>
-  async function carregarManchetes() {
-    const resposta = await fetch('https://gnews.io/api/v4/top-headlines?lang=pt&country=br&max=20&token=8ce1169b48fe6234c1e8ce8287fbeb29');
-    const dados = await resposta.json();
-    const lista = document.getElementById("manchetes-lista");
-    lista.innerHTML = "";
+<!DOCTYPE html><html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notícias Atualizadas</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7637426796351138" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17015471577"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-17015471577');
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+    }h1 {
+  text-align: center;
+  color: #1a1a1a;
+}
 
-    dados.articles.forEach(manchete => {
-      const div = document.createElement("div");
-      div.className = "manchete-item";
+#manchetes-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
 
-      div.innerHTML = `
-        <img src="${manchete.image}" alt="Imagem da manchete" class="manchete-img" />
-        <div class="manchete-texto">
-          <a href="${manchete.url}" target="_blank">${manchete.title}</a>
-        </div>
-      `;
+.manchete-item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
 
-      lista.appendChild(div);
-    });
-  }
+.manchete-item:hover {
+  transform: scale(1.02);
+}
 
-  carregarManchetes();
-  setInterval(carregarManchetes, 60000);
-</script>
+.manchete-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.manchete-texto {
+  padding: 15px;
+}
+
+.manchete-texto a {
+  color: #0078d4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.manchete-texto a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+  <h1>Últimas Manchetes</h1>
+  <div id="manchetes-lista"></div>  <script>
+    async function carregarManchetes() {
+      const url = 'https://gnews.io/api/v4/top-headlines?lang=pt&country=br&token=8ce1169b48fe6234c1e8ce8287fbeb29';
+      try {
+        const resposta = await fetch(url);
+        const dados = await resposta.json();
+        const lista = document.getElementById("manchetes-lista");
+        lista.innerHTML = "";
+
+        dados.articles.forEach(manchete => {
+          const div = document.createElement("div");
+          div.className = "manchete-item";
+
+          div.innerHTML = `
+            <img src="${manchete.image || 'https://via.placeholder.com/300x180?text=Sem+Imagem'}" alt="Imagem" class="manchete-img" />
+            <div class="manchete-texto">
+              <a href="${manchete.url}" target="_blank">${manchete.title}</a>
+            </div>
+          `;
+
+          lista.appendChild(div);
+        });
+      } catch (erro) {
+        console.error("Erro ao carregar manchetes:", erro);
+      }
+    }
+
+    carregarManchetes();
+    setInterval(carregarManchetes, 60000);
+  </script></body>
+</html>
