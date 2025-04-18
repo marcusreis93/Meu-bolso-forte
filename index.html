@@ -1,38 +1,76 @@
-<!-- MENU SUPERIOR COM LINKS DE AFILIADO --><nav class="menu-container">
-  <ul class="menu">
-    <li><a href="https://seusite.com" target="_blank">Início</a></li>
-    <li><a href="https://go.hotmart.com/E82146264X" target="_blank">Finanças Pessoais</a></li>
-    <li><a href="https://go.hotmart.com/W97226434A" target="_blank">Investimentos</a></li>
-    <li><a href="https://go.hotmart.com/V97226245V" target="_blank">Educação Financeira</a></li>
-    <li><a href="https://seusite.com/noticias" target="_blank">Notícias</a></li>
-    <li><a href="https://seusite.com/cursos" target="_blank">Cursos Gratuitos</a></li>
-    <li><a href="https://seusite.com/ferramentas" target="_blank">Ferramentas</a></li>
-  </ul>
-</nav><style>
-  .menu-container {
-    background-color: #f3f3f3;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  }
-  .menu {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', sans-serif;
-  }
-  .menu li a {
-    text-decoration: none;
-    color: #2a2a2a;
-    font-weight: bold;
-    transition: color 0.3s;
-  }
-  .menu li a:hover {
-    color: #0078d7;
-  }
-</style><!-- Conteúdo do site continua abaixo normalmente -->
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Bolso Forte</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+    header {
+      background-color: #0078d7;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+    .headline {
+      padding: 1rem;
+      border-bottom: 1px solid #ccc;
+      background-color: white;
+    }
+    .headline img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    .headline h2 {
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Meu Bolso Forte</h1>
+    <nav>
+      <a href="https://go.hotmart.com/E82146264X" target="_blank">Curso de Finanças Pessoais</a>
+      <a href="https://go.hotmart.com/W97226434A" target="_blank">Renda Extra Online</a>
+      <a href="https://go.hotmart.com/V97226245V" target="_blank">Investimentos para Iniciantes</a>
+    </nav>
+  </header>  <main id="news-container">
+    <!-- Manchetes serão carregadas aqui -->
+  </main>  <script>
+    async function carregarNoticias() {
+      const apiKey = "8ce1169b48fe6234c1e8ce8287fbeb29";
+      const resposta = await fetch(`https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=${apiKey}`);
+      const dados = await resposta.json();
+      const container = document.getElementById("news-container");
+      container.innerHTML = "";
+
+      dados.articles.forEach(noticia => {
+        const div = document.createElement("div");
+        div.className = "headline";
+        div.innerHTML = `
+          <a href="${noticia.url}" target="_blank">
+            <img src="${noticia.image || 'https://via.placeholder.com/600x300'}" alt="Imagem da Notícia">
+            <h2>${noticia.title}</h2>
+            <p>${noticia.description || ''}</p>
+          </a>
+        `;
+        container.appendChild(div);
+      });
+    }
+
+    carregarNoticias();
+    setInterval(carregarNoticias, 60000); // Atualiza a cada 1 minuto
+  </script></body>
+</html>
