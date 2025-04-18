@@ -1,82 +1,64 @@
-<section class="descobrir-container">
-  <h2>Descobrir</h2>
-  <div id="descobrir-lista" class="descobrir-lista"></div>
-</section>
-
-<style>
-  .descobrir-container {
+<section class="manchetes-container">
+  <h2>Últimas Manchetes</h2>
+  <div id="manchetes-lista" class="manchetes-lista"></div>
+</section><style>
+  .manchetes-container {
     padding: 20px;
-    background-color: #f5f5f5;
-    border-bottom: 2px solid #ccc;
+    background-color: #f0f4f8;
   }
-  .descobrir-lista {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  .manchetes-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
   }
-  .descobrir-item {
-    display: flex;
-    align-items: center;
+  .manchete-item {
     background-color: white;
     border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    transition: background 0.3s;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
   }
-  .descobrir-item:hover {
-    background-color: #eef;
+  .manchete-item:hover {
+    transform: scale(1.02);
   }
-  .descobrir-img {
-    width: 80px;
-    height: 80px;
+  .manchete-img {
+    width: 100%;
+    height: 160px;
     object-fit: cover;
-    border-radius: 8px;
-    margin-right: 15px;
   }
-  .descobrir-texto {
-    flex: 1;
+  .manchete-texto {
+    padding: 15px;
   }
-  .descobrir-texto a {
-    color: #1a1a1a;
+  .manchete-texto a {
+    color: #111;
     text-decoration: none;
-    font-weight: 600;
     font-size: 16px;
+    font-weight: 600;
   }
-</style>
+</style><script>
+  async function carregarManchetes() {
+    const resposta = await fetch('https://gnews.io/api/v4/top-headlines?lang=pt&country=br&max=20&token=8ce1169b48fe6234c1e8ce8287fbeb29');
+    const dados = await resposta.json();
+    const lista = document.getElementById("manchetes-lista");
+    lista.innerHTML = "";
 
-<script>
-  const descobrirDados = [
-    {
-      titulo: "Como investir com pouco",
-      imagem: "https://img.freepik.com/fotos-gratis/moedas-de-dinheiro-em-crescimento-com-fundo-escuro_1150-7825.jpg",
-      link: "https://www.infomoney.com.br/minhas-financas/como-comecar-a-investir-com-pouco-dinheiro/"
-    },
-    {
-      titulo: "Economize nas compras",
-      imagem: "https://img.freepik.com/fotos-gratis/comprando-online-no-smartphone_23-2148498642.jpg",
-      link: "https://www.infomoney.com.br/consumo/10-dicas-para-economizar/"
-    },
-    {
-      titulo: "Renda extra em casa",
-      imagem: "https://img.freepik.com/fotos-gratis/pessoa-digitando-no-laptop_53876-138092.jpg",
-      link: "https://www.infomoney.com.br/guias/como-ganhar-dinheiro-em-casa/"
-    }
-    // Adicione mais conforme desejar
-  ];
+    dados.articles.forEach(manchete => {
+      const div = document.createElement("div");
+      div.className = "manchete-item";
 
-  const lista = document.getElementById("descobrir-lista");
+      div.innerHTML = `
+        <img src="${manchete.image}" alt="Imagem da manchete" class="manchete-img" />
+        <div class="manchete-texto">
+          <a href="${manchete.url}" target="_blank">${manchete.title}</a>
+        </div>
+      `;
 
-  descobrirDados.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "descobrir-item";
+      lista.appendChild(div);
+    });
+  }
 
-    div.innerHTML = `
-      <img src="${item.imagem}" alt="Imagem Descobrir" class="descobrir-img" />
-      <div class="descobrir-texto">
-        <a href="${item.link}" target="_blank">${item.titulo}</a>
-      </div>
-    `;
-
-    lista.appendChild(div);
-  });
+  carregarManchetes();
+  setInterval(carregarManchetes, 60000);
 </script>
