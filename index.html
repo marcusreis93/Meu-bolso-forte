@@ -1,157 +1,82 @@
-<!DOCTYPE html><html lang="pt-br"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Bolso Forte</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #f2f2f2;
-      color: #333;
-    }
-    header {
-      background-color: #1e90ff;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav {
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: space-around;
-      padding: 0.5rem;
-      flex-wrap: wrap;
-    }
-    nav a {
-      text-decoration: none;
-      color: #1e90ff;
-      font-weight: bold;
-    }
-    .container {
-      padding: 1rem;
-    }
-    .headline {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .headline-item {
-      width: 300px;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    .headline-item:hover {
-      transform: scale(1.02);
-    }
-    .headline-item img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .headline-item h3 {
-      padding: 0.5rem;
-      font-size: 1rem;
-    }
-    .descobrir {
-      margin-top: 2rem;
-    }
-    .descobrir h2 {
-      margin-bottom: 1rem;
-    }
-    .descobrir-item {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .descobrir-box {
-      width: 300px;
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-    .descobrir-box img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .descobrir-box a {
-      display: block;
-      padding: 0.5rem;
-      color: #1e90ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
-</head><body>
-  <header>
-    <h1>Meu Bolso Forte</h1>
-    <p>Informações e ferramentas para sua vida financeira</p>
-  </header>  <nav>
-    <a href="#">Início</a>
-    <a href="#descobrir">Descobrir</a>
-  </nav>  <div class="container">
-    <section id="manchetes">
-      <h2>Últimas Notícias</h2>
-      <div class="headline" id="news-headlines"></div>
-    </section><section id="descobrir" class="descobrir">
+<section class="descobrir-container">
   <h2>Descobrir</h2>
-  <div class="descobrir-item" id="descobrir-list"></div>
+  <div id="descobrir-lista" class="descobrir-lista"></div>
 </section>
 
-  </div>  <script>
-    async function carregarNoticias() {
-      const url = 'https://gnews.io/api/v4/top-headlines?lang=pt&topic=business&token=8ce1169b48fe6234c1e8ce8287fbeb29';
-      const response = await fetch(url);
-      const data = await response.json();
-      const container = document.getElementById('news-headlines');
-      container.innerHTML = '';
+<style>
+  .descobrir-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ccc;
+  }
+  .descobrir-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .descobrir-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+  }
+  .descobrir-item:hover {
+    background-color: #eef;
+  }
+  .descobrir-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+  }
+  .descobrir-texto {
+    flex: 1;
+  }
+  .descobrir-texto a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+  }
+</style>
 
-      data.articles.slice(0, 10).forEach(noticia => {
-        const div = document.createElement('div');
-        div.className = 'headline-item';
-        div.innerHTML = `
-          <a href="${noticia.url}" target="_blank">
-            <img src="${noticia.image}" alt="">
-            <h3>${noticia.title}</h3>
-          </a>
-        `;
-        container.appendChild(div);
-      });
+<script>
+  const descobrirDados = [
+    {
+      titulo: "Como investir com pouco",
+      imagem: "https://img.freepik.com/fotos-gratis/moedas-de-dinheiro-em-crescimento-com-fundo-escuro_1150-7825.jpg",
+      link: "https://www.infomoney.com.br/minhas-financas/como-comecar-a-investir-com-pouco-dinheiro/"
+    },
+    {
+      titulo: "Economize nas compras",
+      imagem: "https://img.freepik.com/fotos-gratis/comprando-online-no-smartphone_23-2148498642.jpg",
+      link: "https://www.infomoney.com.br/consumo/10-dicas-para-economizar/"
+    },
+    {
+      titulo: "Renda extra em casa",
+      imagem: "https://img.freepik.com/fotos-gratis/pessoa-digitando-no-laptop_53876-138092.jpg",
+      link: "https://www.infomoney.com.br/guias/como-ganhar-dinheiro-em-casa/"
     }
+    // Adicione mais conforme desejar
+  ];
 
-    async function carregarDescobrir() {
-      const links = [
-        { title: 'Tesouro Direto', img: 'https://via.placeholder.com/300x180?text=Tesouro+Direto', url: 'https://www.tesourodireto.com.br/' },
-        { title: 'Educação Financeira', img: 'https://via.placeholder.com/300x180?text=Educação+Financeira', url: 'https://www.serasa.com.br/educacao-financeira/' },
-        { title: 'Cartão de Crédito Ideal', img: 'https://via.placeholder.com/300x180?text=Cartão+Ideal', url: 'https://www.nubank.com.br/cartao/' },
-        { title: 'Como investir na Bolsa', img: 'https://via.placeholder.com/300x180?text=Investir+na+Bolsa', url: 'https://www.infomoney.com.br/guias/como-investir-na-bolsa/' },
-        { title: 'Finanças Pessoais', img: 'https://via.placeholder.com/300x180?text=Finanças+Pessoais', url: 'https://exame.com/invest/financas/' },
-        { title: 'Notícias Econômicas', img: 'https://via.placeholder.com/300x180?text=Notícias+Econômicas', url: 'https://valor.globo.com/' }
-      ];
+  const lista = document.getElementById("descobrir-lista");
 
-      const container = document.getElementById('descobrir-list');
-      container.innerHTML = '';
+  descobrirDados.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "descobrir-item";
 
-      links.forEach(link => {
-        const box = document.createElement('div');
-        box.className = 'descobrir-box';
-        box.innerHTML = `
-          <a href="${link.url}" target="_blank">
-            <img src="${link.img}" alt="Imagem">
-            <span>${link.title}</span>
-          </a>
-        `;
-        container.appendChild(box);
-      });
-    }
+    div.innerHTML = `
+      <img src="${item.imagem}" alt="Imagem Descobrir" class="descobrir-img" />
+      <div class="descobrir-texto">
+        <a href="${item.link}" target="_blank">${item.titulo}</a>
+      </div>
+    `;
 
-    carregarNoticias();
-    carregarDescobrir();
-    setInterval(carregarNoticias, 60000);
-  </script></body></html>
+    lista.appendChild(div);
+  });
+</script>
