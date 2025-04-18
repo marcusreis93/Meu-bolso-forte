@@ -1,102 +1,95 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal de Notícias</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3f3f3;
-      color: #333;
-    }
-    header {
-      background-color: #0078D7;
-      color: white;
-      padding: 1rem 0;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    .headline {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .headline-card {
-      width: 300px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .headline-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .headline-card .p-3 {
-      padding: 1rem;
-    }
-    .menu {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .menu a {
-      text-decoration: none;
-      color: #0078D7;
-      font-weight: bold;
-    }
-    .affiliate-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .affiliate-links a {
-      background-color: #0078D7;
-      color: white;
-      padding: 1rem;
-      border-radius: 5px;
-      text-align: center;
-      width: 300px;
-      text-decoration: none;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-  </style>
-</head><body>
-  <header>
-    <h1>Portal de Notícias</h1>
-  </header>  <nav class="menu">
-    <a href="#">Início</a>
-    <a href="https://go.hotmart.com/E82146264X" target="_blank">Evolutions Desenvolvimento Pessoal</a>
-    <a href="https://go.hotmart.com/W97226434A" target="_blank">Mentoria - Curando as Feridas do Coração</a>
-    <a href="https://go.hotmart.com/V97226245V" target="_blank">O Poder da Oração</a>
-  </nav>  <section id="headlines" class="headline container"></section>  <script>
-    async function fetchHeadlines() {
-      const apiKey = "8ce1169b48fe6234c1e8ce8287fbeb29";
-      const res = await fetch(`https://gnews.io/api/v4/top-headlines?lang=pt&country=br&max=20&apikey=${apiKey}`);
-      const data = await res.json();
-      const container = document.getElementById("headlines");
-      container.innerHTML = "";
-      data.articles.forEach(article => {
-        const card = document.createElement("div");
-        card.className = "headline-card";
-        card.innerHTML = `
-          <a href="${article.url}" target="_blank">
-            <img src="${article.image}" alt="Imagem da matéria">
-            <div class="p-3">
-              <h5>${article.title}</h5>
-              <p>${article.description || ""}</p>
-            </div>
-          </a>
-        `;
-        container.appendChild(card);
-      });
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Financeiro</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .header {
+            background-color: #1b1f23;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .headline-img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .news-section {
+            margin-top: 30px;
+        }
+        .footer {
+            background-color: #1b1f23;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .menu {
+            background-color: #343a40;
+            padding: 10px;
+        }
+        .menu a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        .menu a:hover {
+            text-decoration: underline;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Portal Financeiro</h1>
+        <p>Notícias, educação e oportunidades para seu dinheiro</p>
+    </div>
+    <div class="menu text-center">
+        <a href="#">Início</a>
+        <a href="#">Educação Financeira</a>
+        <a href="#">Investimentos</a>
+        <a href="#">Notícias</a>
+        <a href="#">Contato</a>
+    </div>
+    <div class="container news-section">
+        <div id="news-container" class="row"></div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2025 Portal Financeiro - Todos os direitos reservados</p>
+    </div>
+    <script>
+        async function fetchFinanceNews() {
+            const response = await fetch("https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=20&apikey=8ce1169b48fe6234c1e8ce8287fbeb29");
+            const data = await response.json();
+            const container = document.getElementById("news-container");
+            container.innerHTML = "";data.articles.forEach(article => {
+            const col = document.createElement("div");
+            col.className = "col-md-4";
+            col.innerHTML = `
+                <div class="card">
+                    <img src="${article.image || 'https://via.placeholder.com/400x200'}" class="card-img-top headline-img" alt="Imagem da manchete">
+                    <div class="card-body">
+                        <h5 class="card-title">${article.title}</h5>
+                        <p class="card-text">${article.description || ''}</p>
+                        <a href="${article.url}" target="_blank" class="btn btn-primary">Leia mais</a>
+                    </div>
+                </div>
+            `;
+            container.appendChild(col);
+        });
     }
 
-    fetchHeadlines();
-    setInterval(fetchHeadlines, 60000);
-  </script></body></html>
+    fetchFinanceNews();
+    setInterval(fetchFinanceNews, 60000);
+</script>
+
+</body>
+</html>
