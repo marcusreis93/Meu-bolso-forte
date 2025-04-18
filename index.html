@@ -5,144 +5,126 @@
   <title>Meu Bolso Forte</title>
   <style>
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3f3f3;
-      color: #333;
+      background: #f3f4f6;
+      color: #111;
     }
     header {
-      background-color: #ffffff;
+      background-color: #004578;
       padding: 1rem 2rem;
+      color: #fff;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      justify-content: space-between;
+      flex-wrap: wrap;
     }
     header h1 {
       margin: 0;
-      color: #0078d7;
-    }
-    nav a {
-      margin-left: 1rem;
-      text-decoration: none;
-      color: #0078d7;
-      font-weight: bold;
-    }
-    main {
-      padding: 1rem 2rem;
+      font-size: 1.6rem;
     }
     .section-title {
-      font-size: 1.5rem;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #0078d7;
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.5rem;
+      color: #004578;
+      padding-left: 1rem;
     }
-    .discover-grid {
+    .news-grid, .discover-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
+      padding: 1rem;
     }
-    .discover-item {
+    .news-card, .discover-card {
       background-color: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
       transition: transform 0.2s;
     }
-    .discover-item:hover {
+    .news-card:hover, .discover-card:hover {
       transform: scale(1.02);
     }
-    .discover-item img {
+    .news-card img, .discover-card img {
       width: 100%;
-      height: 180px;
+      height: 160px;
       object-fit: cover;
     }
-    .discover-item a {
-      display: block;
-      padding: 1rem;
-      color: #0078d7;
+    .news-card a, .discover-card a {
       text-decoration: none;
+      color: #004578;
       font-weight: bold;
+      padding: 0.5rem 1rem 1rem;
     }
-    .news-section {
-      margin-top: 2rem;
-    }
-    .news-item {
-      margin-bottom: 1rem;
-    }
-    .news-item a {
-      color: #333;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .footer {
+    footer {
+      background-color: #004578;
+      color: white;
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #777;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Meu Bolso Forte</h1>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#descobrir">Descobrir</a>
-      <a href="#noticias">Notícias</a>
-    </nav>
-  </header>  <main>
-    <section id="descobrir">
-      <h2 class="section-title">Descobrir</h2>
-      <div class="discover-grid">
-        <div class="discover-item">
-          <img src="https://source.unsplash.com/featured/?finance" alt="Finanças" />
-          <a href="https://www.serasa.com.br/educacao-financeira/" target="_blank">Educação Financeira</a>
-        </div>
-        <div class="discover-item">
-          <img src="https://source.unsplash.com/featured/?investments" alt="Investimentos" />
-          <a href="https://www.b3.com.br/pt_br/" target="_blank">Mercado de Ações</a>
-        </div>
-        <div class="discover-item">
-          <img src="https://source.unsplash.com/featured/?career" alt="Carreira" />
-          <a href="https://www.catho.com.br/carreira-sucesso/" target="_blank">Dicas de Carreira</a>
-        </div>
-        <div class="discover-item">
-          <img src="https://source.unsplash.com/featured/?business" alt="Negócios" />
-          <a href="https://endeavor.org.br/" target="_blank">Empreendedorismo</a>
-        </div>
-        <div class="discover-item">
-          <img src="https://source.unsplash.com/featured/?economy" alt="Economia" />
-          <a href="https://valor.globo.com/" target="_blank">Atualizações Econômicas</a>
-        </div>
-        <div class="discover-item">
-          <img src="https://source.unsplash.com/featured/?marketing" alt="Marketing" />
-          <a href="https://neilpatel.com/br/blog/" target="_blank">Marketing Digital</a>
-        </div>
-      </div>
-    </section><section class="news-section" id="noticias">
-  <h2 class="section-title">Últimas Notícias</h2>
-  <div id="newsContainer"></div>
-</section>
-
-  </main>  <footer class="footer">
+  </header>  <section>
+    <div class="section-title">Descobrir</div>
+    <div class="discover-grid" id="discover-section">
+      <!-- Descobrir cards com imagem -->
+    </div>
+  </section>  <section>
+    <div class="section-title">Manchetes Atualizadas</div>
+    <div class="news-grid" id="news-section">
+      <!-- Notícias aqui -->
+    </div>
+  </section>  <footer>
     &copy; 2025 Meu Bolso Forte - Todos os direitos reservados
   </footer>  <script>
-    async function fetchNews() {
-      const response = await fetch("https://gnews.io/api/v4/top-headlines?category=business&lang=pt&country=br&max=10&apikey=8ce1169b48fe6234c1e8ce8287fbeb29");
+    const apiKey = "8ce1169b48fe6234c1e8ce8287fbeb29";
+
+    async function carregarNoticias() {
+      const response = await fetch(`https://gnews.io/api/v4/top-headlines?topic=business&lang=pt&country=br&max=20&apikey=${apiKey}`);
       const data = await response.json();
-      const container = document.getElementById("newsContainer");
+      const container = document.getElementById("news-section");
       container.innerHTML = "";
-      data.articles.forEach(article => {
-        const newsItem = document.createElement("div");
-        newsItem.className = "news-item";
-        newsItem.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
-        container.appendChild(newsItem);
+      data.articles.forEach((artigo) => {
+        const card = document.createElement("div");
+        card.className = "news-card";
+        card.innerHTML = `
+          <img src="${artigo.image || 'https://via.placeholder.com/300x160?text=Not%C3%ADcia'}" alt="Imagem da notícia">
+          <a href="${artigo.url}" target="_blank">${artigo.title}</a>
+        `;
+        container.appendChild(card);
       });
     }
 
-    fetchNews();
-    setInterval(fetchNews, 60000);
+    async function carregarDescobrir() {
+      const links = [
+        { title: 'Educação Financeira', url: 'https://www.serasa.com.br/educacao-financeira', img: 'https://via.placeholder.com/300x160?text=Educa%C3%A7%C3%A3o' },
+        { title: 'Cursos Gratuitos', url: 'https://www.ev.org.br/', img: 'https://via.placeholder.com/300x160?text=Cursos' },
+        { title: 'Investimentos para iniciantes', url: 'https://www.b3.com.br/pt_br/educacional/', img: 'https://via.placeholder.com/300x160?text=Investimentos' },
+        { title: 'Como sair das dívidas', url: 'https://www.serasa.com.br/limpa-nome-online/', img: 'https://via.placeholder.com/300x160?text=D%C3%ADvidas' },
+        { title: 'Melhores bancos digitais', url: 'https://www.exame.com/invest/financas-pessoais/melhores-bancos-digitais/', img: 'https://via.placeholder.com/300x160?text=Bancos' },
+        { title: 'Orçamento doméstico', url: 'https://www.gov.br/pt-br/servicos/planejamento-orcamentario', img: 'https://via.placeholder.com/300x160?text=Or%C3%A7amento' }
+      ];
+      const container = document.getElementById("discover-section");
+      container.innerHTML = "";
+      links.forEach(link => {
+        const card = document.createElement("div");
+        card.className = "discover-card";
+        card.innerHTML = `
+          <img src="${link.img}" alt="Imagem do tópico">
+          <a href="${link.url}" target="_blank">${link.title}</a>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    carregarNoticias();
+    carregarDescobrir();
+    setInterval(carregarNoticias, 60000);
   </script></body>
 </html>
