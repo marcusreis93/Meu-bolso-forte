@@ -1,101 +1,58 @@
-<!DOCTYPE html><html lang="pt-BR"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O Bolso Forte - Educação Financeira</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head><body class="bg-gray-100 text-gray-800">
-  <header class="bg-blue-900 text-white p-4 shadow-md">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-xl font-bold">O Bolso Forte</h1>
-      <nav>
-        <ul class="flex space-x-4">
-          <li><a href="#noticias" class="hover:underline">Notícias</a></li>
-          <li><a href="#economia" class="hover:underline">Dicas de Economia</a></li>
-          <li><a href="#investimentos" class="hover:underline">Investimentos</a></li>
-          <li><a href="#renda" class="hover:underline">Renda Extra</a></li>
-          <li><a href="#cartoes" class="hover:underline">Cartões e Bancos</a></li>
-          <li><a href="#financas" class="hover:underline">Finanças Cristãs</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>  <main class="container mx-auto px-4 py-8 space-y-16">
-    <!-- Notícias -->
-    <section id="noticias">
-      <h2 class="text-2xl font-bold mb-4">Notícias</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="https://exemplo.com/noticia1" target="_blank" class="bg-white shadow-md rounded-lg overflow-hidden">
-          <img src="https://via.placeholder.com/400x200" alt="Imagem Notícia 1" class="w-full">
-          <div class="p-4">
-            <h3 class="font-semibold">Notícia Importante do Dia</h3>
-            <p class="text-sm text-gray-600">Entenda os principais fatos econômicos do momento.</p>
-          </div>
-        </a>
-        <a href="https://exemplo.com/noticia2" target="_blank" class="bg-white shadow-md rounded-lg overflow-hidden">
-          <img src="https://via.placeholder.com/400x200" alt="Imagem Notícia 2" class="w-full">
-          <div class="p-4">
-            <h3 class="font-semibold">Mudanças nas Taxas de Juros</h3>
-            <p class="text-sm text-gray-600">Veja como isso pode afetar seu bolso.</p>
-          </div>
-        </a>
-        <a href="https://exemplo.com/noticia3" target="_blank" class="bg-white shadow-md rounded-lg overflow-hidden">
-          <img src="https://via.placeholder.com/400x200" alt="Imagem Notícia 3" class="w-full">
-          <div class="p-4">
-            <h3 class="font-semibold">Auxílio e Benefícios</h3>
-            <p class="text-sm text-gray-600">Novas regras para programas sociais.</p>
-          </div>
-        </a>
-      </div>
-    </section><!-- Dicas de Economia -->
-<section id="economia">
-  <h2 class="text-2xl font-bold mb-4">Dicas de Economia</h2>
-  <ul class="list-disc list-inside space-y-2">
-    <li><a href="https://exemplo.com/economia1" target="_blank" class="text-blue-700 hover:underline">Como economizar no supermercado</a></li>
-    <li><a href="https://exemplo.com/economia2" target="_blank" class="text-blue-700 hover:underline">Organize suas finanças pessoais</a></li>
-    <li><a href="https://exemplo.com/economia3" target="_blank" class="text-blue-700 hover:underline">Evite dívidas com planejamento</a></li>
-  </ul>
-</section>
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O Bolso Forte - Notícias Financeiras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+    body { background-color: #f4f4f4; color: #333; }
+    header { background-color: #004aad; color: white; padding: 1rem; text-align: center; }
+    nav { background-color: #00337f; padding: 0.5rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    nav a { color: white; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .container { padding: 2rem; display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .card { background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card h3 { padding: 1rem; font-size: 1.2rem; }
+    .card p { padding: 0 1rem 1rem; font-size: 0.95rem; }
+    .card a { color: #004aad; text-decoration: none; font-weight: bold; padding: 0 1rem 1rem; display: inline-block; }
+    footer { background-color: #00337f; color: white; text-align: center; padding: 1rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>O Bolso Forte</h1>
+    <p>Ajude sua vida financeira com conteúdo atualizado e acessível</p>
+  </header>  <nav>
+    <a href="https://www.infomoney.com.br/ultimas-noticias/" target="_blank">Notícias</a>
+    <a href="https://www.serasa.com.br/blog/" target="_blank">Dicas de Economia</a>
+    <a href="https://www.sunoresearch.com.br/noticias/" target="_blank">Investimentos</a>
+    <a href="https://meajudacrianca.com.br/como-ganhar-renda-extra-na-internet/" target="_blank">Renda Extra</a>
+    <a href="https://www.reclameaqui.com.br/categorias/cartoes-de-credito/" target="_blank">Cartões e Bancos</a>
+    <a href="https://biblia.com.br/vida-crista/financas-biblia/" target="_blank">Finanças Cristãs</a>
+  </nav>  <main class="container">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d3" alt="Notícia 1" />
+      <h3>Como se organizar financeiramente em tempos de crise</h3>
+      <p>Descubra dicas práticas para manter sua estabilidade financeira mesmo em momentos difíceis.</p>
+      <a href="https://www.infomoney.com.br/minhas-financas/" target="_blank">Leia mais</a>
+    </div><div class="card">
+  <img src="https://images.unsplash.com/photo-1588776814546-45a8bb97e3ca" alt="Notícia 2" />
+  <h3>5 maneiras de gerar renda extra ainda este mês</h3>
+  <p>Confira formas práticas e acessíveis de aumentar sua renda de forma rápida e segura.</p>
+  <a href="https://www.serasa.com.br/blog/renda-extra/" target="_blank">Leia mais</a>
+</div>
 
-<!-- Investimentos -->
-<section id="investimentos">
-  <h2 class="text-2xl font-bold mb-4">Investimentos</h2>
-  <ul class="list-disc list-inside space-y-2">
-    <li><a href="https://exemplo.com/investimento1" target="_blank" class="text-blue-700 hover:underline">Guia para iniciantes na Bolsa</a></li>
-    <li><a href="https://exemplo.com/investimento2" target="_blank" class="text-blue-700 hover:underline">Tesouro Direto: o que é e como funciona</a></li>
-    <li><a href="https://exemplo.com/investimento3" target="_blank" class="text-blue-700 hover:underline">Fundos imobiliários em alta</a></li>
-  </ul>
-</section>
+<div class="card">
+  <img src="https://images.unsplash.com/photo-1518183214770-9cffbec72538" alt="Notícia 3" />
+  <h3>Investimentos seguros para iniciantes</h3>
+  <p>Saiba onde aplicar seu dinheiro com segurança e retorno consistente para iniciantes.</p>
+  <a href="https://www.sunoresearch.com.br/guias/investimentos/" target="_blank">Leia mais</a>
+</div>
 
-<!-- Renda Extra -->
-<section id="renda">
-  <h2 class="text-2xl font-bold mb-4">Renda Extra</h2>
-  <ul class="list-disc list-inside space-y-2">
-    <li><a href="https://exemplo.com/renda1" target="_blank" class="text-blue-700 hover:underline">Ideias para ganhar dinheiro em casa</a></li>
-    <li><a href="https://exemplo.com/renda2" target="_blank" class="text-blue-700 hover:underline">Como vender na internet</a></li>
-    <li><a href="https://exemplo.com/renda3" target="_blank" class="text-blue-700 hover:underline">Freelas para começar hoje mesmo</a></li>
-  </ul>
-</section>
-
-<!-- Cartões e Bancos -->
-<section id="cartoes">
-  <h2 class="text-2xl font-bold mb-4">Cartões e Bancos</h2>
-  <ul class="list-disc list-inside space-y-2">
-    <li><a href="https://exemplo.com/cartao1" target="_blank" class="text-blue-700 hover:underline">Melhores cartões sem anuidade</a></li>
-    <li><a href="https://exemplo.com/cartao2" target="_blank" class="text-blue-700 hover:underline">Compare contas digitais</a></li>
-    <li><a href="https://exemplo.com/cartao3" target="_blank" class="text-blue-700 hover:underline">Evite taxas escondidas no seu banco</a></li>
-  </ul>
-</section>
-
-<!-- Finanças Cristãs -->
-<section id="financas">
-  <h2 class="text-2xl font-bold mb-4">Finanças Cristãs</h2>
-  <ul class="list-disc list-inside space-y-2">
-    <li><a href="https://exemplo.com/crista1" target="_blank" class="text-blue-700 hover:underline">O que a Bíblia diz sobre dinheiro</a></li>
-    <li><a href="https://exemplo.com/crista2" target="_blank" class="text-blue-700 hover:underline">Generosidade e planejamento</a></li>
-    <li><a href="https://exemplo.com/crista3" target="_blank" class="text-blue-700 hover:underline">Como ser fiel com os recursos</a></li>
-  </ul>
-</section>
-
-  </main>  <footer class="bg-blue-900 text-white text-center py-4 mt-8">
+  </main>  <footer>
     <p>&copy; 2025 O Bolso Forte. Todos os direitos reservados.</p>
   </footer>
-</body></html>
+</body>
+</html>
