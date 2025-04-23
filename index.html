@@ -1,111 +1,52 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O Bolso Forte</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #003366;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: #0055a5;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 1rem;
-    }
-    nav a:hover {
-      background: #003366;
-    }
-    main {
-      padding: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .news-item {
-      background: white;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-    .news-item img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .news-item h3 {
-      margin: 0.5rem;
-      font-size: 1.1rem;
-    }
-    .news-item p {
-      margin: 0.5rem;
-      color: #333;
-    }
-    .news-item a {
-      display: block;
-      text-align: right;
-      padding: 0.5rem;
-      text-decoration: none;
-      color: #0055a5;
-      font-weight: bold;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>O Bolso Forte</h1>
-    <p>Notícias e dicas para melhorar sua vida financeira</p>
-  </header>  <nav>
-    <a href="#" onclick="loadFeed('https://g1.globo.com/rss/g1/economia/')">Notícias</a>
-    <a href="#" onclick="loadFeed('https://www.infomoney.com.br/feed/')">Investimentos</a>
-    <a href="#" onclick="loadFeed('https://www.valorinveste.com.br/ultimas-noticias/rss')">Dicas de economia</a>
-    <a href="#" onclick="loadFeed('https://www.serasa.com.br/blog/rss/')">Cartões e Bancos</a>
-    <a href="#" onclick="loadFeed('https://feeds.feedburner.com/BibliaFinanceira')">Finanças Cristãs</a>
-  </nav>  <main id="news-container">
-    <p>Carregando notícias...</p>
-  </main>  <script>
-    async function loadFeed(feedUrl) {
-      const container = document.getElementById('news-container');
-      container.innerHTML = '<p>Carregando...</p>';
+<body class="bg-gray-100">
+  <header class="bg-green-700 text-white py-4 text-center text-3xl font-bold">
+    O Bolso Forte
+    <p class="text-sm mt-1">Ajude-se financeiramente com conteúdo de valor</p>
+  </header>  <nav class="flex justify-center space-x-4 bg-white py-4 shadow-md">
+    <button onclick="carregarNoticias('ultimas-noticias')" class="text-green-700 hover:underline">Notícias</button>
+    <button onclick="carregarNoticias('minhas-financas')" class="text-green-700 hover:underline">Dicas de Economia</button>
+    <button onclick="carregarNoticias('investimentos')" class="text-green-700 hover:underline">Investimentos</button>
+    <button onclick="carregarNoticias('empreendedorismo')" class="text-green-700 hover:underline">Renda Extra</button>
+    <button onclick="carregarNoticias('cartoes')" class="text-green-700 hover:underline">Cartões e Bancos</button>
+    <button onclick="carregarNoticias('financas-pessoais')" class="text-green-700 hover:underline">Finanças Cristãs</button>
+  </nav>  <main class="max-w-6xl mx-auto py-6 px-4">
+    <div id="conteudo" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Notícias serão carregadas aqui -->
+    </div>
+  </main>  <footer class="bg-green-700 text-white text-center py-4">
+    © 2025 O Bolso Forte — Todos os direitos reservados
+  </footer>  <script>
+    async function carregarNoticias(categoria) {
+      const url = `https://api.rss2json.com/v1/api.json?rss_url=https://www.infomoney.com.br/${categoria}/feed/`;
+      const response = await fetch(url);
+      const data = await response.json();
+      const container = document.getElementById('conteudo');
+      container.innerHTML = '';
 
-      try {
-        const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}`);
-        const data = await response.json();
+      data.items.slice(0, 6).forEach(noticia => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-lg shadow p-4 transition hover:shadow-xl';
 
-        if (!data.items || data.items.length === 0) {
-          container.innerHTML = '<p>Nenhuma notícia encontrada.</p>';
-          return;
-        }
+        card.innerHTML = `
+          <a href="${noticia.link}" target="_blank" rel="noopener noreferrer">
+            <img src="${noticia.thumbnail || 'https://via.placeholder.com/400x200'}" alt="Imagem da notícia" class="w-full h-48 object-cover rounded-md mb-3">
+            <h3 class="text-lg font-semibold mb-2">${noticia.title}</h3>
+            <p class="text-sm text-gray-600">${new Date(noticia.pubDate).toLocaleDateString()}</p>
+          </a>
+        `;
 
-        container.innerHTML = data.items.map(item => `
-          <div class="news-item">
-            <img src="${item.thumbnail || 'https://via.placeholder.com/300x180'}" alt="Imagem da notícia">
-            <h3>${item.title}</h3>
-            <p>${item.description.slice(0, 100)}...</p>
-            <a href="${item.link}" target="_blank">Leia mais</a>
-          </div>
-        `).join('');
-
-      } catch (error) {
-        container.innerHTML = '<p>Erro ao carregar notícias.</p>';
-      }
+        container.appendChild(card);
+      });
     }
 
-    // Carrega a primeira categoria por padrão
-    loadFeed('https://g1.globo.com/rss/g1/economia/');
+    // Categoria padrão ao carregar o site
+    carregarNoticias('ultimas-noticias');
   </script></body>
 </html>
