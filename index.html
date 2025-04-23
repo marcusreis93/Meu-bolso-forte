@@ -1,52 +1,60 @@
 <!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Notícias e dicas financeiras para melhorar sua vida." />
   <title>O Bolso Forte</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
-  <header class="bg-green-700 text-white py-4 text-center text-3xl font-bold">
-    O Bolso Forte
-    <p class="text-sm mt-1">Ajude-se financeiramente com conteúdo de valor</p>
-  </header>  <nav class="flex justify-center space-x-4 bg-white py-4 shadow-md">
-    <button onclick="carregarNoticias('ultimas-noticias')" class="text-green-700 hover:underline">Notícias</button>
-    <button onclick="carregarNoticias('minhas-financas')" class="text-green-700 hover:underline">Dicas de Economia</button>
-    <button onclick="carregarNoticias('investimentos')" class="text-green-700 hover:underline">Investimentos</button>
-    <button onclick="carregarNoticias('empreendedorismo')" class="text-green-700 hover:underline">Renda Extra</button>
-    <button onclick="carregarNoticias('cartoes')" class="text-green-700 hover:underline">Cartões e Bancos</button>
-    <button onclick="carregarNoticias('financas-pessoais')" class="text-green-700 hover:underline">Finanças Cristãs</button>
-  </nav>  <main class="max-w-6xl mx-auto py-6 px-4">
-    <div id="conteudo" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Notícias serão carregadas aqui -->
-    </div>
-  </main>  <footer class="bg-green-700 text-white text-center py-4">
-    © 2025 O Bolso Forte — Todos os direitos reservados
-  </footer>  <script>
-    async function carregarNoticias(categoria) {
-      const url = `https://api.rss2json.com/v1/api.json?rss_url=https://www.infomoney.com.br/${categoria}/feed/`;
-      const response = await fetch(url);
-      const data = await response.json();
-      const container = document.getElementById('conteudo');
-      container.innerHTML = '';
-
-      data.items.slice(0, 6).forEach(noticia => {
-        const card = document.createElement('div');
-        card.className = 'bg-white rounded-lg shadow p-4 transition hover:shadow-xl';
-
-        card.innerHTML = `
-          <a href="${noticia.link}" target="_blank" rel="noopener noreferrer">
-            <img src="${noticia.thumbnail || 'https://via.placeholder.com/400x200'}" alt="Imagem da notícia" class="w-full h-48 object-cover rounded-md mb-3">
-            <h3 class="text-lg font-semibold mb-2">${noticia.title}</h3>
-            <p class="text-sm text-gray-600">${new Date(noticia.pubDate).toLocaleDateString()}</p>
-          </a>
-        `;
-
-        container.appendChild(card);
-      });
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.min.css">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f8f8f8; margin: 0; padding: 0; }
+    header, footer { background-color: #222; color: #fff; text-align: center; padding: 1em 0; }
+    nav ul { list-style: none; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; }
+    nav li { margin: 0 10px; }
+    nav a { text-decoration: none; color: #0077cc; font-weight: bold; }
+    .container { max-width: 960px; margin: auto; padding: 1rem; }
+    .card { background: white; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 1rem; margin: 1rem 0; transition: transform 0.2s; }
+    .card:hover { transform: scale(1.02); }
+    .card img { width: 100%; border-radius: 10px; height: auto; }
+    .card h2 { margin-top: 0.5rem; }
+    .card a { text-decoration: none; color: #0077cc; font-weight: bold; }
+    @media (max-width: 600px) {
+      nav ul { flex-direction: column; }
+      nav li { margin: 0.5rem 0; }
     }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>O Bolso Forte</h1>
+    <p>Ajuda financeira prática e acessível</p>
+  </header>  <nav>
+    <ul>
+      <li><a href="https://g1.globo.com/economia/" target="_blank">Notícias</a></li>
+      <li><a href="https://www.serasa.com.br/educacao-financeira/" target="_blank">Dicas de Economia</a></li>
+      <li><a href="https://www.infomoney.com.br/investimentos/" target="_blank">Investimentos</a></li>
+      <li><a href="https://www.nexojornal.com.br/expresso/2023/10/05/Formas-de-ganhar-renda-extra-em-tempos-de-crise" target="_blank">Renda Extra</a></li>
+      <li><a href="https://www.febraban.org.br/" target="_blank">Cartões e Bancos</a></li>
+      <li><a href="https://biblia.com.br/estudos-biblicos/financas-na-biblia/" target="_blank">Finanças Cristãs</a></li>
+    </ul>
+  </nav>  <main class="container">
+    <section class="card">
+      <img src="https://via.placeholder.com/800x400.png?text=Not%C3%ADcia+Financeira" alt="Imagem da Notícia" loading="lazy">
+      <h2><a href="https://valor.globo.com/" target="_blank">Mercado financeiro começa a semana otimista</a></h2>
+      <p>Com a melhora nas projeções econômicas, analistas indicam oportunidades em setores estratégicos.</p>
+    </section><section class="card">
+  <img src="https://via.placeholder.com/800x400.png?text=Economia+Dom%C3%A9stica" alt="Imagem Economia" loading="lazy">
+  <h2><a href="https://economia.uol.com.br/noticias/redacao/2023/10/15/como-economizar-no-mercado.htm" target="_blank">Como economizar nas compras do mês</a></h2>
+  <p>Especialistas dão dicas práticas para manter o orçamento sob controle mesmo com a alta dos preços.</p>
+</section>
 
-    // Categoria padrão ao carregar o site
-    carregarNoticias('ultimas-noticias');
-  </script></body>
+<section class="card">
+  <img src="https://via.placeholder.com/800x400.png?text=Investimentos" alt="Imagem Investimentos" loading="lazy">
+  <h2><a href="https://www.infomoney.com.br/guias/investimentos/" target="_blank">Investimentos para iniciantes: por onde começar?</a></h2>
+  <p>Aprenda o passo a passo para começar a investir com pouco dinheiro e baixo risco.</p>
+</section>
+
+  </main>  <footer>
+    <p>&copy; 2025 O Bolso Forte. Todos os direitos reservados.</p>
+  </footer>
+</body>
 </html>
