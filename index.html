@@ -1,104 +1,112 @@
-<!DOCTYPE html><html lang="pt-BR">
-<head>
+<!DOCTYPE html><html lang="pt-br"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>O Bolso Forte</title>
+  <title>O Bolso Forte - Notícias e Dicas Financeiras</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
+      background-color: #f8f9fa;
     }
-    header {
-      background-color: #003366;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    nav {
-      background-color: #004080;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 0.5rem;
-    }
-    nav a {
-      color: white;
-      margin: 0.5rem;
-      text-decoration: none;
+    .nav-link.active {
       font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
+    .news-card {
+      margin-bottom: 20px;
     }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 1rem;
-    }
-    .noticia {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-      margin: 1rem;
-      padding: 1rem;
-      width: 300px;
-      transition: transform 0.2s;
-    }
-    .noticia:hover {
-      transform: scale(1.02);
-    }
-    .noticia img {
+    .news-card img {
       max-width: 100%;
-      border-radius: 10px;
+      height: auto;
+      border-radius: 8px;
     }
     footer {
-      background-color: #003366;
-      color: white;
+      background: #343a40;
+      color: #fff;
       text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
+      padding: 1em;
+      margin-top: 2em;
     }
   </style>
-</head>
-<body>
-  <header>
-    <h1>O Bolso Forte</h1>
-    <p>Notícias e dicas para sua saúde financeira</p>
-  </header>
-  <nav>
-    <a href="https://g1.globo.com/economia/" target="_blank">Notícias</a>
-    <a href="https://www.serasa.com.br/blog/categorias/educacao-financeira/" target="_blank">Dicas de Economia</a>
-    <a href="https://valorinveste.globo.com/" target="_blank">Investimentos</a>
-    <a href="https://www.youtube.com/results?search_query=renda+extra" target="_blank">Renda Extra</a>
-    <a href="https://www.melhorescartoes.com.br/" target="_blank">Cartões e Bancos</a>
-    <a href="https://biblia.com.br/perguntas/financas-na-biblia/" target="_blank">Finanças Cristãs</a>
-  </nav>
-  <div class="container">
-    <div class="noticia">
-      <img src="https://cdn.pixabay.com/photo/2021/09/21/11/38/money-6643830_960_720.jpg" alt="Dinheiro economizado" />
-      <h3>Como começar a guardar dinheiro com pouco</h3>
-      <p>Mesmo com salário apertado, é possível organizar as finanças e investir no seu futuro.</p>
-      <a href="https://g1.globo.com/economia/seu-dinheiro/noticia/2023/12/27/como-comecar-a-juntar-dinheiro.ghtml" target="_blank">Leia mais</a>
-    </div><div class="noticia">
-  <img src="https://cdn.pixabay.com/photo/2017/10/13/14/50/investment-2846741_960_720.jpg" alt="Investimento em ações" />
-  <h3>Aprenda a investir com segurança</h3>
-  <p>Conheça opções de investimento para iniciantes e comece com pouco dinheiro.</p>
-  <a href="https://valorinveste.globo.com/" target="_blank">Leia mais</a>
-</div>
+</head><body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">O Bolso Forte</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="#noticias">Notícias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#dicas">Dicas de Economia</a></li>
+          <li class="nav-item"><a class="nav-link" href="#investimentos">Investimentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#rendaextra">Renda Extra</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bancos">Cartões e Bancos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#fe">Finanças Cristãs</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>  <main class="container mt-4">
+    <section id="noticias">
+      <h2>Últimas Notícias</h2>
+      <div id="news-container" class="row"></div>
+    </section><section id="dicas" class="mt-5">
+  <h2>Dicas de Economia</h2>
+  <p><a href="https://www.infomoney.com.br/minhas-financas/" target="_blank">Leia mais sobre economia no InfoMoney</a></p>
+</section>
 
-<div class="noticia">
-  <img src="https://cdn.pixabay.com/photo/2019/10/07/16/45/savings-4534905_960_720.jpg" alt="Cofrinho e moedas" />
-  <h3>Dicas práticas para economizar no dia a dia</h3>
-  <p>Pequenas mudanças de hábitos podem gerar grande economia no final do mês.</p>
-  <a href="https://www.serasa.com.br/blog/como-economizar-dinheiro/" target="_blank">Leia mais</a>
-</div>
+<section id="investimentos" class="mt-5">
+  <h2>Investimentos</h2>
+  <p><a href="https://www.seudinheiro.com" target="_blank">Confira as melhores oportunidades de investimento</a></p>
+</section>
 
+<section id="rendaextra" class="mt-5">
+  <h2>Renda Extra</h2>
+  <p><a href="https://www.guiabolso.com.br/blog/como-fazer-renda-extra/" target="_blank">Ideias práticas para ganhar renda extra</a></p>
+</section>
+
+<section id="bancos" class="mt-5">
+  <h2>Cartões e Bancos</h2>
+  <p><a href="https://www.idinheiro.com.br/cartoes/" target="_blank">Compare cartões e soluções bancárias</a></p>
+</section>
+
+<section id="fe" class="mt-5">
+  <h2>Finanças Cristãs</h2>
+  <p><a href="https://biblia.com.br/artigos/vida-crista/financas-biblicas/" target="_blank">Aprenda a lidar com finanças sob uma perspectiva cristã</a></p>
+</section>
+
+<section class="mt-5">
+  <h2>Design Apresentativo</h2>
+  <div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
+    padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+    border-radius: 8px; will-change: transform;">
+    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+      src="https://www.canva.com/design/DAGljTTBOnQ/kw9biCfKuAHr1O2nfNoh2g/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+    </iframe>
   </div>
-  <footer>
-    <p>&copy; 2025 O Bolso Forte - Todos os direitos reservados</p>
-  </footer>
-</body>
-</html>
+  <a href="https://www.canva.com/design/DAGljTTBOnQ/kw9biCfKuAHr1O2nfNoh2g/view?utm_content=DAGljTTBOnQ&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Design de Marcus Reis</a>
+</section>
+
+  </main>  <footer>
+    <p>© 2025 O Bolso Forte. Todos os direitos reservados.</p>
+  </footer>  <script>
+    fetch('https://gnews.io/api/v4/top-headlines?lang=pt&topic=business&token=9c4e9912e2291d733d2e410340ef8a88')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('news-container');
+        data.articles.forEach(article => {
+          const col = document.createElement('div');
+          col.className = 'col-md-4';
+          col.innerHTML = `
+            <div class="card news-card">
+              <img src="${article.image || 'https://via.placeholder.com/300x200'}" class="card-img-top" alt="Notícia">
+              <div class="card-body">
+                <h5 class="card-title">${article.title}</h5>
+                <p class="card-text">${article.description || ''}</p>
+                <a href="${article.url}" target="_blank" class="btn btn-primary">Ler mais</a>
+              </div>
+            </div>
+          `;
+          container.appendChild(col);
+        });
+      });
+  </script>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script></body></html>
