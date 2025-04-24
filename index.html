@@ -1,150 +1,85 @@
-<!DOCTYPE html><html lang="pt-br"><head>
+<!DOCTYPE html><html lang="pt-BR"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>O Bolso Forte - Notícias e Dicas Financeiras</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>O Bolso Forte</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }body {
-  background-color: #f2f2f2;
-  color: #333;
-}
-
-header {
-  background-color: #004aad;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-}
-
-nav {
-  background-color: #003580;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 0.5rem 0;
-}
-
-nav a {
-  color: #fff;
-  margin: 0.5rem 1rem;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #ffd700;
-}
-
-main {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  padding: 1.5rem;
-}
-
-article {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s;
-}
-
-article:hover {
-  transform: scale(1.02);
-}
-
-article img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-  loading: lazy;
-}
-
-article h2 {
-  font-size: 1.2rem;
-  margin: 0.5rem 1rem;
-}
-
-article p {
-  font-size: 0.95rem;
-  margin: 0.5rem 1rem 1rem;
-}
-
-footer {
-  background-color: #003580;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-}
-
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    nav {
+      background-color: #e9ecef;
+      padding: 0.5rem;
+    }
+    nav a {
+      margin: 0 1rem;
+      color: #004080;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      margin-top: 1rem;
+    }
+    .card {
+      margin-bottom: 1rem;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
   </style>
 </head><body>
   <header>
     <h1>O Bolso Forte</h1>
-    <p>Notícias e Dicas para Fortalecer sua Vida Financeira</p>
-  </header>  <nav>
-    <a href="https://g1.globo.com/economia/" target="_blank">Notícias</a>
-    <a href="https://www.serasa.com.br/educacao-financeira/" target="_blank">Dicas de Economia</a>
-    <a href="https://www.infomoney.com.br/mercados/" target="_blank">Investimentos</a>
-    <a href="https://rendaextradigital.com.br/blog/" target="_blank">Renda Extra</a>
-    <a href="https://www.cartoes.com.br/" target="_blank">Cartões e Bancos</a>
-    <a href="https://biblia.com.br/vida-crista/financas/" target="_blank">Finanças Cristãs</a>
-  </nav>  <main>
-    <article>
-      <a href="https://g1.globo.com/economia/" target="_blank">
-        <img src="https://via.placeholder.com/400x180?text=Economia+em+Alta" alt="Economia em Alta">
-        <h2>Economia brasileira surpreende no primeiro trimestre</h2>
-        <p>Analistas revisam projeções com crescimento acima do esperado.</p>
-      </a>
-    </article><article>
-  <a href="https://www.serasa.com.br/educacao-financeira/" target="_blank">
-    <img src="https://via.placeholder.com/400x180?text=Educação+Financeira" alt="Educação Financeira">
-    <h2>5 dicas para economizar e sair do vermelho</h2>
-    <p>Aprenda hábitos simples que podem transformar sua vida financeira.</p>
-  </a>
-</article>
-
-<article>
-  <a href="https://www.infomoney.com.br/mercados/" target="_blank">
-    <img src="https://via.placeholder.com/400x180?text=Investimentos+2025" alt="Investimentos 2025">
-    <h2>Investimentos promissores para 2025</h2>
-    <p>Especialistas indicam onde aplicar seu dinheiro neste ano.</p>
-  </a>
-</article>
-
-<article>
-  <a href="https://rendaextradigital.com.br/blog/" target="_blank">
-    <img src="https://via.placeholder.com/400x180?text=Renda+Extra" alt="Renda Extra">
-    <h2>Como gerar renda extra com habilidades digitais</h2>
-    <p>Trabalhos online ganham espaço e ajudam no orçamento doméstico.</p>
-  </a>
-</article>
-
-<article>
-  <a href="https://www.cartoes.com.br/" target="_blank">
-    <img src="https://via.placeholder.com/400x180?text=Cart%C3%B5es+e+Bancos" alt="Cartões e Bancos">
-    <h2>Melhores cartões de crédito sem anuidade</h2>
-    <p>Conheça as opções ideais para quem quer economizar com tarifas.</p>
-  </a>
-</article>
-
-<article>
-  <a href="https://biblia.com.br/vida-crista/financas/" target="_blank">
-    <img src="https://via.placeholder.com/400x180?text=Finan%C3%A7as+Crist%C3%A3s" alt="Finanças Cristãs">
-    <h2>Finanças cristãs: o que a Bíblia ensina sobre dinheiro?</h2>
-    <p>Princípios de sabedoria e responsabilidade na administração financeira.</p>
-  </a>
-</article>
-
-  </main>  <footer>
-    <p>&copy; 2025 O Bolso Forte. Todos os direitos reservados.</p>
-  </footer>
-</body></html>
+    <p>Notícias e dicas para fortalecer sua vida financeira</p>
+  </header>  <nav class="d-flex justify-content-center flex-wrap">
+    <a href="https://www.infomoney.com.br/ultimas-noticias/" target="_blank">Notícias</a>
+    <a href="https://www.exame.com/economia/" target="_blank">Dicas de Economia</a>
+    <a href="https://www.infomoney.com.br/investimentos/" target="_blank">Investimentos</a>
+    <a href="https://www.infomoney.com.br/minhas-financas/renda-extra/" target="_blank">Renda Extra</a>
+    <a href="https://www.serasa.com.br/cartoes-e-contas/" target="_blank">Cartões e Bancos</a>
+    <a href="https://biblia.com.br/perguntas-biblicas/financas-na-biblia/" target="_blank">Finanças Cristãs</a>
+  </nav>  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://www.infomoney.com.br/wp-content/uploads/2024/04/mercado-financeiro.jpg" class="card-img-top" alt="Notícia 1">
+          <div class="card-body">
+            <h5 class="card-title">Como começar a investir com pouco dinheiro</h5>
+            <p class="card-text">Descubra estratégias para investir com segurança e rentabilidade, mesmo com pouco dinheiro.</p>
+            <a href="https://www.infomoney.com.br/guias/como-comecar-a-investir/" class="btn btn-primary" target="_blank">Leia mais</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://www.infomoney.com.br/wp-content/uploads/2023/06/educacao-financeira-para-iniciantes.jpg" class="card-img-top" alt="Notícia 2">
+          <div class="card-body">
+            <h5 class="card-title">Dicas de economia doméstica</h5>
+            <p class="card-text">Pequenos hábitos que ajudam a economizar e a ter mais controle sobre o orçamento familiar.</p>
+            <a href="https://www.serasa.com.br/economia-domestica/" class="btn btn-primary" target="_blank">Leia mais</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="https://www.infomoney.com.br/wp-content/uploads/2022/12/renda-extra-online.jpg" class="card-img-top" alt="Notícia 3">
+          <div class="card-body">
+            <h5 class="card-title">Formas de gerar renda extra em 2025</h5>
+            <p class="card-text">Veja ideias práticas e acessíveis para aumentar sua renda no tempo livre.</p>
+            <a href="https://www.infomoney.com.br/minhas-financas/renda-extra/" class="btn btn-primary" target="_blank">Leia mais</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script></body></html>
