@@ -1,103 +1,100 @@
-<!DOCTYPE html><html lang="pt-BR">
-<head>
+<!DOCTYPE html><html lang="pt-br"><head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>O Bolso Forte</title>
-  <link rel="stylesheet" href="styles.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #0e4d92;
-      color: white;
-      padding: 1em;
-      text-align: center;
-    }
-    nav {
-      background-color: #1c6dd0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    nav a {
-      padding: 1em;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      background-color: #0e4d92;
-    }
-    main {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 1em;
-    }
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      margin: 1em;
-      max-width: 300px;
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card img {
-      width: 100%;
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-    }
-    .card h3 {
-      padding: 0.5em;
-      font-size: 1.1em;
-    }
-    footer {
-      background-color: #0e4d92;
-      color: white;
-      text-align: center;
-      padding: 1em;
-      margin-top: 2em;
-    }
+      background-color: #f2f2f2;
+    }header {
+  background-color: #0056b3;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #1d68c4;
+}
+
+nav a {
+  padding: 14px 20px;
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  background-color: #004494;
+}
+
+.container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.noticia {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.noticia:hover {
+  transform: scale(1.02);
+}
+
+.noticia img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.noticia h3 {
+  padding: 15px;
+  font-size: 1.1em;
+}
+
   </style>
-</head>
-<body>
+</head><body>
   <header>
     <h1>O Bolso Forte</h1>
-    <p>Notícias e Dicas para Fortalecer Sua Vida Financeira</p>
-  </header>
-  <nav>
-    <a href="https://g1.globo.com/economia/" target="_blank">Notícias</a>
-    <a href="https://www.serasa.com.br/ensina/economia-domestica/" target="_blank">Dicas de Economia</a>
-    <a href="https://valorinveste.globo.com/" target="_blank">Investimentos</a>
-    <a href="https://www.google.com/search?q=renda+extra&tbm=nws" target="_blank">Renda Extra</a>
-    <a href="https://www.google.com/search?q=cart%C3%B5es+e+bancos&tbm=nws" target="_blank">Cartões e Bancos</a>
-    <a href="https://www.google.com/search?q=finan%C3%A7as+crist%C3%A3s&tbm=nws" target="_blank">Finanças Cristãs</a>
-  </nav>
-  <main id="noticias">
-    <div class="card" onclick="window.open('https://g1.globo.com/economia/noticia/2025/04/24/governo-anuncia-novas-medidas-economicas.ghtml', '_blank')">
-      <img src="https://s2.glbimg.com/YlEbg5bN0MmcUk0FbA1fsPYgU6I=/0x0:2000x1333/984x0/smart/filters:strip_icc/i.s3.glbimg.com/v1/AUTH_.../economia.jpg" alt="Notícia 1">
-      <h3>Governo anuncia novas medidas econômicas</h3>
-    </div>
-    <div class="card" onclick="window.open('https://valorinveste.globo.com/mercados/noticia/2025/04/24/ibovespa-sobe-com-alta-dos-bancos.ghtml', '_blank')">
-      <img src="https://s2.glbimg.com/g0RxT4vlKiGzBgR4Ud0ZBIVM0c4=/0x0:1400x1050/984x0/smart/filters:strip_icc/i.s3.glbimg.com/v1/AUTH_.../banco.jpg" alt="Notícia 2">
-      <h3>Ibovespa sobe com alta dos bancos</h3>
-    </div>
-    <div class="card" onclick="window.open('https://www.serasa.com.br/ensina/dicas-para-sair-do-vermelho/', '_blank')">
-      <img src="https://serasa-cdn.s3.sa-east-1.amazonaws.com/ensina/uploads/2022/01/sair-do-vermelho.jpg" alt="Notícia 3">
-      <h3>Dicas para sair do vermelho</h3>
-    </div>
-  </main>
-  <footer>
-    <p>© 2025 O Bolso Forte. Todos os direitos reservados.</p>
-  </footer>
-</body>
-</html>
+    <p>Notícias e dicas para melhorar sua vida financeira</p>
+  </header>  <nav>
+    <a href="#">Notícias</a>
+    <a href="#">Dicas de Economia</a>
+    <a href="#">Investimentos</a>
+    <a href="#">Renda Extra</a>
+    <a href="#">Cartões e Bancos</a>
+    <a href="#">Finanças Cristãs</a>
+  </nav>  <div class="container">
+    <div class="noticia">
+      <a href="https://g1.globo.com/economia/noticia/2024/04/22/medidas-economicas.ghtml" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Governo_Brasileiro_logo.svg/640px-Governo_Brasileiro_logo.svg.png" alt="Notícia 1">
+        <h3>Governo anuncia novas medidas econômicas</h3>
+      </a>
+    </div><div class="noticia">
+  <a href="https://valor.globo.com/financas/noticia/2024/04/22/ibovespa-sobe-com-bancos.ghtml" target="_blank">
+    <img src="https://logodownload.org/wp-content/uploads/2019/09/b3-logo-0.png" alt="Notícia 2">
+    <h3>Ibovespa sobe com alta dos bancos</h3>
+  </a>
+</div>
+
+<div class="noticia">
+  <a href="https://www.serasa.com.br/blog/como-sair-do-vermelho/" target="_blank">
+    <img src="https://www.serasa.com.br/static/6c27f507789d67ee8a439fc2a0a6a749/94eeb/como-sair-do-vermelho.jpg" alt="Notícia 3">
+    <h3>Dicas para sair do vermelho</h3>
+  </a>
+</div>
+
+  </div>
+</body></html>
